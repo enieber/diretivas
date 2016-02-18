@@ -1,0 +1,14 @@
+<div>
+    <div>
+        <label class="{{requerido}}">{{label}}</label><span class="required" ng-if="required">*</span> :</label>
+    </div>
+    <div>
+        <div>
+            <label class="{{space}}" ng-repeat="radio in data">
+                <input type="radio" name="{{name}}" value="{{radio}}" ng-value="radio" ng-model="$parent.model" ng-disabled="disabled == 'true' ? true : false"
+                       aria-describedby="input radiobox">
+                {{text ? radio.text : radio}}
+            </label>
+        </div>
+    </div>
+</div>

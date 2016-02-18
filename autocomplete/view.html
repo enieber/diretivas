@@ -1,0 +1,17 @@
+<div ng-if="label">
+    <label for="{{id}}" class="{{requerido}}">{{label}}<span class="required" ng-if="required">*</span>:</label>
+</div>
+<input id="{{id}}" type="text" name="{{id}}" ng-model="model" ng-disabled="disabled == 'true' ? true : false"
+       uib-typeahead="item as item[campo] for item  in pesquisa(campo, $viewValue)" ng-focus="selecionado = true"
+       ng-blur="selecionado = false"
+       typeahead-loading="loading" typeahead-no-results="noResults" placeholder="{{placeholder}}" pattern="{{pattern}}"
+       ng-required="{{ required != undefined}}" ng-init="pristine=true" uib-tooltip="{{tooltip}}"
+       tooltip-placement="bottom" tooltip-trigger="focus" tooltip-enable="!model" ng-minlength="minlength"
+       maxlength="{{maxlength}}" class="form-control form-control-2">
+<i ng-if="loading" class="glyphicon glyphicon-refresh"></i>
+<div class="bg-danger" ng-show="invalid">
+    {{mensagem}}
+</div>
+<div ng-if="noResults && selecionado">
+    <i class="glyphicon glyphicon-remove"></i> Nenhum resultado encontrado.
+</div>

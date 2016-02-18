@@ -1,0 +1,10 @@
+<div  ng-if="label">
+    <label for="{{id}}" class="{{requerido}}">{{label}}:</label><span class="required" ng-if="required">*</span></label>
+</div>
+<div>
+    {{model}}
+    <select id="{{id}}" class="form-control" ng-model="model" ng-options="option.Sigla + ' - ' for option in data track by option.Sigla" ng-change="update(this)">
+        <option class="form-control" value=''>Selecione</option>
+        </option>
+    </select>
+</div>

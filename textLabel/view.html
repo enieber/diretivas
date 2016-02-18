@@ -1,0 +1,11 @@
+<div>
+    <div class="">
+      <label for="{{id}}" class="{{requerido}}">{{label}}:</label>
+    </div>
+    <div>
+        <textarea id="{{id}}" class="form-control form-control-2"
+                  ng-model="model" ng-maxlength="maxlength" ng-minlength="minlength"
+                  maxlength="{{maxlength}}" placeholder="{{placeholder}}" ng-required="{{ required != undefined}}"
+                  aria-describedby="pesquisarInput" ng-disabled="disabled == 'true' ? true : false">
+    </div>
+</div>

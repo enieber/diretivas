@@ -1,0 +1,6 @@
+<div ng-if="error">
+        <div ng-if="error.required" class="required">{{messageRequired}}</div>
+        <div ng-if="error.minlength" class="required">{{messageMinlength}}</div>
+        <div ng-if="error.pattern" class="required">{{messagePattern}}</div>
+        <div ng-if="error.maxlength" class="required">{{messageMaxlength}}</div>
+</div>

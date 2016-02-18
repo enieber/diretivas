@@ -1,0 +1,11 @@
+<div class="col-sm-10 col-sm-offset-1 padding-top-10">
+    <div class="input-group margin-bottom-10">
+        <span class="input-group-addon" id="basic-addon1"><i class="fa {{icon}}"></i></span>
+        <input id="{{id}}" type="text" name="{{id}}" class="form-control form-control-2 input-active" ng-model="model"
+               ng-maxlength="maxlength" ng-minlength="minlength" maxlength="{{maxlength}}"
+               placeholder="{{placeholder}}" aria-describedby="input text"  ng-disabled="disabled == 'true' ? true : false"
+               pattern="{{pattern.pattern}}" ng-required="{{ required != undefined}}"
+               uib-tooltip="{{tooltip}}" tooltip-placement="bottom" tooltip-trigger="focus" tooltip-enable="!model">
+        <jmj-validate></jmj-validate>
+    </div>
+</div>
