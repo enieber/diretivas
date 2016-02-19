@@ -1,0 +1,23 @@
+{
+  "name": "diretivas",
+  "version": "1.0.0",
+  "description": "directives angular",
+  "main": "index.js",
+  "scripts": {
+    "test": "grunt test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jmjsistemas/diretivas.git"
+  },
+  "keywords": [
+    "angular",
+    "directives"
+  ],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jmjsistemas/diretivas/issues"
+  },
+  "homepage": "https://github.com/jmjsistemas/diretivas#readme"
+}
