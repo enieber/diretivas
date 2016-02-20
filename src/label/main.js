@@ -1,14 +1,12 @@
-app.directive('jmjDateInputLabel', function() {
+app.directive('jmjLabel', function() {
         return {
             restrict: 'E',
-            templateUrl: 'dateInputLabel/view.html',
+            templateUrl: 'label/view.html',
             scope : {
                 label : '@',
                 id: '@',
-                maxlength: '@',
-                minlength: '@',
+                required: '@',
                 placeholder: '@',
-                pattern: '@',
                 model : '=',
                 disabled : '@'
             }

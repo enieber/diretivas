@@ -1,9 +1,6 @@
+    xdescribe('Teste EnumLabel', function () {
 
-define(['angularMocks'], function () {
-
-    describe('Teste EnumLabel', function () {
-
-        var compile, $scope, directiveElem;
+        var compile, $scope;
 
         beforeEach(function () {
             module('jmjRadioLabel');
@@ -41,7 +38,7 @@ define(['angularMocks'], function () {
                 'data="enumSimNao" text="text" campo="value" '+
                 'required="true"></jmj-radio-label>';
 
-            var directiveElem = getCompiledElement(template, $scope);
+            getCompiledElement(template, $scope);
             expect($scope.atendimentoRN.value).toEqual('S');
         });
 
@@ -51,7 +48,7 @@ define(['angularMocks'], function () {
                 'data="enumSimNao" text="text" campo="value" '+
                 'required="true"></jmj-radio-label>';
             $scope.model.atendimentoRN = { value: 'S', text: 'Sim'};
-            var directiveElem = getCompiledElement(templete, $scope);
+            getCompiledElement(templete, $scope);
             expect($scope.model.atendimentoRN.value).toEqual('S');
         });
 
@@ -66,7 +63,7 @@ define(['angularMocks'], function () {
                 'data="enumSimNao" text="text" campo="value" '+
                 'required="true"></jmj-radio-label>';
 
-            var directiveElem = getCompiledElement(templete, $scope);
+            getCompiledElement(templete, $scope);
             expect($scope.model.dadosBeneficiario.atendimentoRN.value).toEqual('S');
         });
 
@@ -84,9 +81,7 @@ define(['angularMocks'], function () {
                 'data="enumSimNao" text="text" campo="value" '+
                 'required="true"></jmj-radio-label>';
 
-            var directiveElem = getCompiledElement(templete, $scope);
+            getCompiledElement(templete, $scope);
             expect($scope.model.dadosBeneficiario.atendimentoRN.value).toEqual('S');
         });
     });
-
-});

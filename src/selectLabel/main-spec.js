@@ -1,8 +1,6 @@
-define(['angularMocks'], function () {
+   xdescribe('Teste selectLabel', function () {
 
-    describe('Teste selectLabel', function () {
-
-        var compile, $scope, directiveElem;
+        var compile, $scope;
 
         beforeEach(function () {
             module('jmjSelectLabel');
@@ -24,18 +22,17 @@ define(['angularMocks'], function () {
                 {
                     id: 1,
                     nome: 'Ranlive', perfis: [
-                    {text: 'admin', prioridade: 1},
-                    {text: 'View', prioridade: 2}
-                ]
+                        {text: 'admin', prioridade: 1},
+                        {text: 'View', prioridade: 2}
+                    ]
                 },
-
                 {
                     id: 2,
                     nome: 'Enieber', perfis: [
-                    {text: 'tester', prioridade: 3},
-                    {text: 'executardor', prioridade: 1},
-                    {text: 'executardor 123', prioridade: 5}
-                ]
+                        {text: 'tester', prioridade: 3},
+                        {text: 'executardor', prioridade: 1},
+                        {text: 'executardor 123', prioridade: 5}
+                    ]
                 }
             ];
         });
@@ -44,7 +41,7 @@ define(['angularMocks'], function () {
             $scope.defaultValue = function(value){
                 return value.id == 1;
             };
-            var directiveElem = getCompiledElement('<jmj-select-label label="Nome"'+
+            getCompiledElement('<jmj-select-label label="Nome"'+
             'model="usuario" data="usuarios" campo="nome" default="defaultValue"'+
             'required="true"></jmj-select-label>', $scope);
             expect($scope.usuario.nome).toEqual('Ranlive');
@@ -62,11 +59,9 @@ define(['angularMocks'], function () {
                     {text: 'executardor 123', prioridade: 5}
                 ]
             };
-            var directiveElem = getCompiledElement('<jmj-select-label label="Nome"'+
+            getCompiledElement('<jmj-select-label label="Nome"'+
             'model="usuario" data="usuarios" campo="nome" default="defaultValue"'+
             'required="true"></jmj-select-label>', $scope);
             expect($scope.usuario.nome).toEqual('Enieber');
         });
     });
-
-});

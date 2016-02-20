@@ -1,43 +1,41 @@
-define(['angularMocks'], function () {
-
-    describe('Teste inputLabel', function () {
+  describe('Teste inputLabel', function () {
 
         var $rootScope, $compile;
 
-        beforeEach(function () {
-            module('jmjInputLabel');
-        });
+       beforeEach(function () {
+           module('jmj.diretivas');
 
-        beforeEach(inject(function (_$rootScope_, _$compile_) {
-            $rootScope = _$rootScope_;
-            $compile = _$compile_;
-        }));
+           inject(function($injector){
+               $compile = $injector.get('$compile');
+               $scope = $injector.get('$rootScope');
+           });
+       });
 
-        it('deve incluir classe required se for required=true ', function () {
-            var inputLabel = $compile('<jmj-input-label label="3 - Nº Guia Referenciada" required="true"></jmj-input-label>')($rootScope);
-            $rootScope.$digest();
-            expect(inputLabel.find('span').hasClass('required')).toBeTruthy();
-        });
+       function getCompiledElement(template){
+           var compiledDirective = $compile(angular.element(template))($scope);
+           $scope.$digest();
+           return compiledDirective;
+       }
 
-        it('deve conter a classe ng-valid com maxlength correto', function () {
-            var inputLabel = $compile('<jmj-input-label label="3 - Nº Guia Referegrnciada" maxlength="9"></jmj-input-label>')($rootScope);
-            $rootScope.$digest();
-            var input = inputLabel.find('input');
-            input.val('123456789');
-            $rootScope.$digest();
+       it('deve invalidar o input se for required=true e não for preenchido', function () {
+           var input = getCompiledElement('<jmj-input-label label="3 - Nº Guia Referenciada" required="true"></jmj-input-label>', $scope);
+           expect(input.find('input').hasClass('ng-invalid')).toEqual(true);
+       });
 
+      it('deve validar o input se for required=true e for preenchido', function () {
+          $scope.test = 'ta';
+           var input = getCompiledElement('<jmj-input-label label="3 - Nº Guia Referenciada" model="test" required="true"></jmj-input-label>', $scope);
+           expect(input.find('input').hasClass('ng-invalid')).toEqual(false);
+       });
 
-            expect(input.hasClass('ng-valid')).toEqual(true);
-        });
+      it('deve disabilitar o campo caso for colocado o atributo disable=true', function () {
+          var input = getCompiledElement('<jmj-input-label label="Teste" model="test" disabled="true"></jmj-input-label>', $scope);
+          expect(input.find('input').attr('disabled')).toEqual('disabled');
+      });
 
-        it('deve conter a classe ng-invalid com o input não preenchido', function () {
-            var inputLabel = $compile('<jmj-input-label label="3 - Nº Guia Referenciada" required="true"></jmj-input-label>')($rootScope);
-            var input = inputLabel.find('input');
-            input.val('');
-            $rootScope.$digest();
-            expect(input.hasClass('ng-valid')).toEqual(false);
-        });
+      it('deve abilitar o campo se não for colocado o atributo disable=true', function () {
+          var input = getCompiledElement('<jmj-input-label label="Teste" model="test"></jmj-input-label>', $scope);
+          expect(input.find('input').attr('disabled')).toBeUndefined();
+      });
 
     });
-
-});

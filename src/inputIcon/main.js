@@ -1,18 +1,10 @@
-define(['text!extensions/diretivas/inputIcon/view.html'], function (view) {
+'use strict';
 
-    'use strict';
-
-    var thisComponent = {
-        name: 'jmjInputIcon',
-        directives: {
-            filtro: ['jmjInputIcon', customDirective]
-        }
-    };
-
-    function customDirective() {
+angular.module('jmj.diretivas')
+    .directive('jmjInputIcon', function() {
         return {
             restrict: 'E',
-            template: view,
+            template: 'inputIcon/view.html',
             scope: {
                 label: '@',
                 id: '@',
@@ -42,12 +34,5 @@ define(['text!extensions/diretivas/inputIcon/view.html'], function (view) {
             }
 
         };
-    }
 
-    return {
-        initialize: function () {
-            return thisComponent;
-        }
-    };
-
-});
+    });

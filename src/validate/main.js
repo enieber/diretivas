@@ -1,37 +1,10 @@
-/**
- * @license Todos os direitos reservados a JMJ.
- * @author GilbertoLeão <gilbertorleao@gmail.com>
- * @ngdoc overview
- * @name jmjValidate
- * @description
- * Diretiva resonsavél por criar um elemento label e um input na tela recebe os parametros:
- *
- *
- *  <b>label:</b> Exibe o label com o valor passado pelo componente.
- *
- *  <b>model:</b> Passa o model que onde o valor será selecionado.
- *
- *  <b>parametros html:</b> id, maxlength, minlength, placeholder
- *
- *  * <b>Exemplo:</b><br/><br/>
- *  <br/><label>Label</label>
- *  <input type="text" name="radio" ng-model="$parent.model" aria-describedby="radio"></input>
- */
-define(['text!extensions/diretivas/validate/view.html'], function (view) {
+'use strict';
 
-    'use strict';
-
-    var thisComponent = {
-        name: 'jmjValidate',
-        directives: {
-            filtro: ['jmjValidate', customDirective]
-        }
-    };
-
-    function customDirective() {
+angular.module('jmj.diretivas')
+    .directive('jmjValidate', function() {
         return {
             restrict: 'E',
-            template: view,
+            template: 'validate/view.html',
             transclude: true,
             controller: function ($scope) {
                 $scope.$on('jmjValidateEvent', function (evento, elemento) {
@@ -48,12 +21,4 @@ define(['text!extensions/diretivas/validate/view.html'], function (view) {
                 });
             }
         };
-    }
-
-    return {
-        initialize: function () {
-            return thisComponent;
-        }
-    };
-
-});
+    });

@@ -1,6 +1,5 @@
-<label for="{{id}}" class="{{requerido}} col-md-5 col-sm-5 col-xs-6 control-label text-right padding-top-7">
-    <div class="row">{{label}}<span class="required" ng-if="required">*</span>:</div>
-</label>
+
+<jmj-label id="{{id}}" label="{{label}}" required="{{required}}" styleClass="{{requerido}} col-md-5 col-sm-5 col-xs-6 control-label text-right padding-top-7"></jmj-label>
 <div class="col-md-7 col-sm-7 col-xs-6 ">
     <input id="{{id}}" type="text" name="{{id}}" class="form-control form-control-3" ng-model="model"
            ng-maxlength="maxlength" ng-minlength="minlength" maxlength="{{maxlength}}"
@@ -8,4 +7,3 @@
            pattern="{{pattern.pattern}}" ng-required="{{ required != undefined}}"
            uib-tooltip="{{tooltip}}" tooltip-placement="bottom" tooltip-trigger="focus" tooltip-enable="!model">
 </div>
-<jmj-validate></jmj-validate>

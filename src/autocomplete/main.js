@@ -1,37 +1,7 @@
-/**
- * @license Todos os direitos reservados a JMJ.
- * @author GilbertoLeão <gilbertorleao@gmail.com>
- * @ngdoc overview
- * @name jmjAutocomplete
- * @description
- * Diretiva resonsavél por criar um elemento label e um input na tela recebe os parametros:
- *
- *
- *  <b>label:</b> Exibe o label com o valor passado pelo componente.
- *
- *  <b>model:</b> Passa o model que onde o valor será selecionado.
- *
- *  <b>parametros html:</b> id, maxlength, minlength, placeholder
- *
- *  * <b>Exemplo:</b><br/><br/>
- *  <br/><label>Label</label>
- *  <input type='text' name='radio' ng-model='$parent.model' aria-describedby='radio'></input>
- */
-define(['text!extensions/diretivas/autocomplete/view.html'], function (view) {
-
-    'use strict';
-
-    var thisComponent = {
-        name: 'jmjAutocomplete',
-        directives: {
-            filtro: ['jmjAutocomplete', customDirective]
-        }
-    };
-
-    function customDirective() {
+app.directive('jmjAutocomplete', function() {
         return {
             restrict: 'E',
-            template: view,
+            template: 'autocomplete/view.html',
             scope: {
                 label: '@',
                 pesquisa: '=',
@@ -73,12 +43,4 @@ define(['text!extensions/diretivas/autocomplete/view.html'], function (view) {
                 });
             }
         };
-    }
-
-    return {
-        initialize: function () {
-            return thisComponent;
-        }
-    };
-
-});
+    });

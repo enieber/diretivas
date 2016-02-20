@@ -1,8 +1,6 @@
-define(['angularMocks'], function () {
+    xdescribe('Teste panel', function () {
 
-    describe('Teste panel', function () {
-
-        var compile, scope, directiveElem;
+        var compile, scope;
 
         beforeEach(function () {
             module('jmjPanelLabel');
@@ -30,5 +28,3 @@ define(['angularMocks'], function () {
             expect(directiveElem.find('h5').text()).toEqual('  Pesquisa de Guias');
         });
     });
-
-});

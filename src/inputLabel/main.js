@@ -1,18 +1,7 @@
-define(['text!extensions/diretivas/inputLabel/view.html'], function (view) {
-
-    'use strict';
-
-    var thisComponent = {
-        name: 'jmjInputLabel',
-        directives: {
-            filtro: ['jmjInputLabel', customDirective]
-        }
-    };
-
-    function customDirective() {
+app.directive('jmjInputLabel', function() {
         return {
             restrict: 'E',
-            template: view,
+            templateUrl: 'inputLabel/view.html',
             scope: {
                 label: '@',
                 id: '@',
@@ -42,12 +31,5 @@ define(['text!extensions/diretivas/inputLabel/view.html'], function (view) {
             }
 
         };
-    }
 
-    return {
-        initialize: function () {
-            return thisComponent;
-        }
-    };
-
-});
+    });

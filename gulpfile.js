@@ -1,0 +1,62 @@
+const gulp = require('gulp');
+const minifyJS = require('gulp-uglify');
+const concat = require('gulp-concat-util');
+const minifyHTML = require('gulp-minify-html');
+const templateCache = require('gulp-angular-templatecache');
+const Server = require('karma').Server;
+
+const custom_module_name = "jmj.diretivas";
+const main_module = 'jmj-diretivas.js';
+const js_header = '(function(){"use strict";';
+const js_footer = '})();';
+const templateName = 'template.js';
+
+    const source = {
+        templates: 'template/**/*.html',
+        js: 'src/**/*.js',
+        jsTest: '!src/**/*-spec.js',
+        templateTemp: 'tmp/**/*.js'
+    };
+
+    const destiny = {
+        dist: 'dist'
+    };
+
+    const temp = {
+        tmp: 'tmp'
+    };
+
+    gulp.task('test',['js'], function (done) {
+        new Server({
+            configFile: __dirname + '/karma.conf.js',
+            singleRun: true
+        }, done).start();
+    });
+
+    gulp.task('tdd',['js'], function (done) {
+        new Server({
+            configFile: __dirname + '/karma.conf.js'
+        }, done).start();
+    });
+
+    gulp.task('templates', function() {
+        return gulp.src(source.templates)
+            .pipe(minifyHTML( {empty: true} ))
+            .pipe(templateCache(templateName, { module: custom_module_name }))
+            .pipe(gulp.dest(temp.tmp));
+    });
+
+    gulp.task('js', ['templates'], function(){
+       return gulp.src([source.js, source.jsTest, source.templateTemp])
+           .pipe(minifyJS())
+           .pipe(concat(main_module))
+           .pipe(concat.header(js_header))
+           .pipe(concat.footer(js_footer))
+           .pipe(gulp.dest(destiny.dist))
+    });
+
+    gulp.task('watch', function() {
+        gulp.watch([source.js], ['test']);
+        gulp.watch([destiny.dist], ['test']);
+    });
+gulp.task('default', ['watch']);

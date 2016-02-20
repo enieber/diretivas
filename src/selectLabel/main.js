@@ -1,42 +1,10 @@
-/**
- * @license Todos os direitos reservados a JMJ.
- * @author enieber
- * @ngdoc overview
- * @name jmjSelectLabel
- * @description
- *  Diretiva resonsavél por criar um elemento label e um select na tela recebe os parametros:
- *
- *
- *  <b>label:</b> Exibe o label com o valor passado pelo componente.
- *
- *
- *  <b>data:</b> Passa as opções que serão exibidas na diretiva.
- *
- *  <b>model:</b> Passa o model que onde o valor será selecionado.
- *
- *  *  <b>Exemplo:</b><br/><br/>
- *  <br/><label>Label</label>
- *  <select id="{{id}}" class="form-control" ng-model="model">
- * <option class="form-control" value="Selecione">Selecione</option>
- * </select>
- */
-define(['text!extensions/diretivas/selectLabel/view.html'], function (view) {
+'use strict';
 
-    'use strict';
-
-    var thisComponent = {
-
-        name: 'jmjSelectLabel',
-
-        directives: {
-            filtro: ['jmjSelectLabel', customDirective]
-        }
-    };
-
-    function customDirective() {
+angular.module('jmj.diretivas')
+    .directive('jmjSelectLabel', function() {
         return {
             restrict: 'E',
-            template: view,
+            template: 'selectLabel/view.html',
             scope: {
                 label: '@',
                 data: '=',
@@ -56,7 +24,7 @@ define(['text!extensions/diretivas/selectLabel/view.html'], function (view) {
                 });
             },
 
-            controller: function ($scope,$timeout) {
+            controller: function ($scope) {
                 $scope.$watch('data', function(value){
                     if (value && $scope.default && !$scope.model) {
                         value.forEach(function(element, index, array){
@@ -68,12 +36,4 @@ define(['text!extensions/diretivas/selectLabel/view.html'], function (view) {
                 });
             }
         };
-    }
-
-    return {
-        initialize: function () {
-            return thisComponent;
-        }
-    };
-
-});
+    });

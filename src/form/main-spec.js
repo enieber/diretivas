@@ -1,8 +1,6 @@
-define(['angularMocks'], function () {
+   xdescribe('Teste form', function () {
 
-    describe('Teste form', function () {
-
-        var compile, scope, directiveElem;
+        var compile, scope;
 
         beforeEach(function () {
             module('jmjForm');
@@ -31,5 +29,3 @@ define(['angularMocks'], function () {
             expect(directiveElem.hasClass('ng-valid')).toEqual(true);
         });
     });
-
-});

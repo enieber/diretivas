@@ -1,31 +1,13 @@
-define(['text!extensions/diretivas/panelStyle/view.html'], function (view) {
+'use strict';
 
-    'use strict';
-
-    var thisComponent = {
-
-        name: 'jmjPanelStyle',
-
-        directives: {
-            filtro: ['jmjPanelStyle', customDirective]
-        }
-    };
-
-    function customDirective() {
+angular.module('jmj.diretivas')
+    .directive('jmjPanelStyle', function() {
         return {
             restrict: 'E',
-            template: view,
+            template: 'panelStyle/view.html',
             scope:{
                 style: '@'
             },
             transclude : true
         };
-    }
-
-    return {
-        initialize: function () {
-            return thisComponent;
-        }
-    };
-
-});
+    });

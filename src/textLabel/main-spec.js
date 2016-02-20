@@ -1,9 +1,6 @@
+    xdescribe('Teste textLabel', function () {
 
-define(['angularMocks'], function () {
-
-    describe('Teste textLabel', function () {
-
-        var compile, scope, directiveElem;
+        var compile, scope;
 
         beforeEach(function () {
             module('jmjTextLabel');
@@ -22,10 +19,8 @@ define(['angularMocks'], function () {
 
         it('deve invalidar o text-label se for required e tiver vazia', function () {
             scope.test = '';
-            var directiveElem = getCompiledElement('<form name="sampleForm"> <jmj-text-label label="23 - Observação / Justificativa"' +
+            getCompiledElement('<form name="sampleForm"> <jmj-text-label label="23 - Observação / Justificativa"' +
                 ' model="model.observacao" required="true"></jmj-text-label></form>', scope);
             expect(scope.sampleForm.$invalid).toEqual(true);
         });
     });
-
-});

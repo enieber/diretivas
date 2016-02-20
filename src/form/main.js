@@ -1,38 +1,10 @@
-/**
- * @license Todos os direitos reservados a JMJ.
- * @author GilbertoLeao<gilbertorleao@gmail.com>
- * @ngdoc overview
- * @name jmjPanel
- * @description
- *  Diretiva resonsavél por criar um elemento label e um panel na tela recebe os parametros:
- *
- *
- *  <b>label:</b> Exibe o label com o valor passado pelo componente.
- *
- *  <b>Exemplo:</b><br/><br/>
- *
- *  <div class="panel panel-default"">
- *      <div class="panel-body">
- *          <div ng-transclude></div>
- *      </div>
- *  </div>
- */
-define(['sandbox', 'text!extensions/diretivas/form/view.html'], function (sandbox, view) {
+'use strict';
 
-    'use strict';
-
-    var thisComponent = {
-        name: 'jmjForm',
-
-        directives: {
-            filtro: ['jmjForm', customDirective]
-        }
-    };
-
-    function customDirective() {
+angular.module('jmj.diretivas')
+    .directive('jmjForm', function() {
         return {
             restrict: 'E',
-            template: view,
+            template: 'form/view.html',
             transclude: true,
             replace: true,
             scope: {
@@ -59,12 +31,4 @@ define(['sandbox', 'text!extensions/diretivas/form/view.html'], function (sandbo
                 });
             }
         };
-    }
-
-    return {
-        initialize: function () {
-            return thisComponent;
-        }
-    };
-
-});
+    });
