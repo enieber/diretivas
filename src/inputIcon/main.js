@@ -1,10 +1,7 @@
-'use strict';
-
-angular.module('jmj.diretivas')
-    .directive('jmjInputIcon', function() {
+app.directive('jmjInputIcon', function() {
         return {
             restrict: 'E',
-            template: 'inputIcon/view.html',
+            templateUrl: 'inputIcon/view.html',
             scope: {
                 label: '@',
                 id: '@',
