@@ -1,25 +1,26 @@
-    xdescribe('Teste panel', function () {
-
-        var compile, scope;
+    describe('Teste panel', function () {
+        var $compile, $scope;
 
         beforeEach(function () {
-            module('jmjPanel');
+            module('jmj.diretivas');
 
-            inject(function($compile, $rootScope){
-                compile = $compile;
-                scope = $rootScope.$new();
+            inject(function($injector){
+                $compile = $injector.get('$compile');
+                $scope = $injector.get('$rootScope');
             });
         });
 
         function getCompiledElement(template){
-            var compiledDirective = compile(angular.element(template))(scope);
-            scope.$digest();
+            var compiledDirective = $compile(angular.element(template))($scope);
+            $scope.$digest();
             return compiledDirective;
         }
 
+
         it('deve conter um label dentro ', function () {
-            scope.test = '';
-            var directiveElem = getCompiledElement('<jmj-panel><label>Teste</label></jmj-panel>', scope);
+            $scope.test = '';
+            var directiveElem = getCompiledElement('<jmj-panel><label>Teste</label></jmj-panel>', $scope);
+            console.log(directiveElem);
             expect(directiveElem.find('label').text()).toEqual('Teste');
         });
     });
