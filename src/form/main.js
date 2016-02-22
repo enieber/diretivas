@@ -1,10 +1,7 @@
-'use strict';
-
-angular.module('jmj.diretivas')
-    .directive('jmjForm', function() {
+app.directive('jmjForm', function() {
         return {
             restrict: 'E',
-            template: 'form/view.html',
+            templateUrl: 'form/view.html',
             transclude: true,
             replace: true,
             scope: {
