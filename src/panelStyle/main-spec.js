@@ -28,5 +28,4 @@ describe('Teste panelStyle', function () {
         var directiveElem = getCompiledElement('<jmj-panel-style style="{{class}}"><label>Teste</label></jmj-panel-style>', $scope);
         expect(directiveElem.find('div').hasClass('bgColor3 branco')).toEqual(true);
     });
-
 });

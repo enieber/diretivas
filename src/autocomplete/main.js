@@ -1,18 +1,17 @@
 app.directive('jmjAutocomplete', function() {
         return {
             restrict: 'E',
-            template: 'autocomplete/view.html',
+            templateUrl: 'autocomplete/view.html',
             scope: {
-                label: '@',
-                pesquisa: '=',
                 id: '@',
+                label: '@',
                 placeholder: '@',
                 model: '=',
-                campo: '@',
                 pattern: '=',
+                pesquisa: '=',
                 mensagem: '@',
+                campo: '@',
                 tooltip: '@',
-                name: '@',
                 maxlength: '@',
                 minlength: '@',
                 required: '@',
@@ -28,7 +27,7 @@ app.directive('jmjAutocomplete', function() {
                     scope.currentScope.requerido = '';
                 });
             },
-            controller: function ($scope) {
+            controller: ['$scope', function ($scope) {
                 //metodo para validar se o campo do autocomplete esta preenchido
                 $scope.$watch('model', function (newValues, oldValues, scope) {
                     if (!angular.isString(scope.model) && scope.model && !scope.model[scope.campo]) {
@@ -41,6 +40,6 @@ app.directive('jmjAutocomplete', function() {
                         scope.model = model;
                     }
                 });
-            }
+            }]
         };
     });

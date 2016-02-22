@@ -1,7 +1,6 @@
 describe('Teste label', function () {
+
     var $compile, $scope;
-
-
 
     beforeEach(function () {
         module('jmj.diretivas');
@@ -27,6 +26,4 @@ describe('Teste label', function () {
         var label = getCompiledElement('<jmj-label label="Teste"></jmj-label>', $scope);
         expect(label.find('label').text()).toEqual("Teste:");
     });
-
-
 });

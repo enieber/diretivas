@@ -1,4 +1,5 @@
 describe('Teste timeInputLabel', function () {
+
     var $compile, $scope;
 
     beforeEach(function () {

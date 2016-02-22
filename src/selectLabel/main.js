@@ -1,10 +1,7 @@
-'use strict';
-
-angular.module('jmj.diretivas')
-    .directive('jmjSelectLabel', function() {
+app.directive('jmjSelectLabel', function() {
         return {
             restrict: 'E',
-            template: 'selectLabel/view.html',
+            templateUrl: 'selectLabel/view.html',
             scope: {
                 label: '@',
                 data: '=',
@@ -24,7 +21,7 @@ angular.module('jmj.diretivas')
                 });
             },
 
-            controller: function ($scope) {
+            controller: ['$scope', function ($scope) {
                 $scope.$watch('data', function(value){
                     if (value && $scope.default && !$scope.model) {
                         value.forEach(function(element, index, array){
@@ -34,6 +31,6 @@ angular.module('jmj.diretivas')
                         });
                     }
                 });
-            }
+            }]
         };
     });
