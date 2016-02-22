@@ -1,10 +1,7 @@
-'use strict';
-
-angular.module('jmj.diretivas')
-    .directive('jmjTextLabel', function() {
+app.directive('jmjTextLabel', function() {
         return {
             restrict: 'E',
-            template: 'textLabel/view.html',
+            templateUrl: 'textLabel/view.html',
             scope: {
                 label: '@',
                 id: '@',
