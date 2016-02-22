@@ -1,12 +1,9 @@
-'use strict';
-
-angular.module('jmj.diretivas')
-    .directive('jmjValidate', function() {
+app.directive('jmjValidate', function() {
         return {
             restrict: 'E',
             template: 'validate/view.html',
             transclude: true,
-            controller: function ($scope) {
+            controller: ['$scope', function ($scope) {
                 $scope.$on('jmjValidateEvent', function (evento, elemento) {
                     $scope.error = elemento;
                     if($scope.error.required) {
@@ -19,6 +16,6 @@ angular.module('jmj.diretivas')
                         $scope.messagePattern = evento.currentScope.pattern.mensagem;
                     }
                 });
-            }
+            }]
         };
     });
