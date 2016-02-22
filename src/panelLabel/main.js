@@ -1,10 +1,7 @@
-'use strict';
-
-angular.module('jmj.diretivas')
-    .directive('jmjPanelLabel', function() {
+app.directive('jmjPanelLabel', function() {
         return {
             restrict: 'E',
-            template: 'panelLabel/view.html',
+            templateUrl: 'panelLabel/view.html',
             scope: {
                 label: '@',
                 icon: '@'
