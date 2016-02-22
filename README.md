@@ -1,8 +1,10 @@
 # diretivas angular
 
-*Issue of CodeClimate*
+**Pre Requisitos**
 
-[![Issue Count](https://codeclimate.com/github/jmjsistemas/diretivas/badges/issue_count.svg)](https://codeclimate.com/github/jmjsistemas/diretivas)
+* Node >= 4
+* Gulp
+
 
 ## License
     Apache 2.0
