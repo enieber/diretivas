@@ -1,18 +1,19 @@
-    xdescribe('Teste EnumLabel', function () {
+    describe('Teste radioLabel', function () {
+        var $compile, $scope;
 
-        var compile, $scope;
+
 
         beforeEach(function () {
-            module('jmjRadioLabel');
+            module('jmj.diretivas');
 
-            inject(function($compile, $rootScope){
-                compile = $compile;
-                $scope = $rootScope.$new();
+            inject(function($injector){
+                $compile = $injector.get('$compile');
+                $scope = $injector.get('$rootScope');
             });
         });
 
         function getCompiledElement(template){
-            var compiledDirective = compile(angular.element(template))($scope);
+            var compiledDirective = $compile(angular.element(template))($scope);
             $scope.$digest();
             return compiledDirective;
         }
@@ -33,7 +34,7 @@
             $scope.defaultValue = function(value){
                 return value.value == 'S';
             };
-            var template = '<jmj-radio-label name="atendimento" label="6 - Atendimento RN" ' +
+            var template = '<jmj-radio-label id="atendimento" name="atendimento" label="6 - Atendimento RN" ' +
                 'model="atendimentoRN" default="defaultValue"'+
                 'data="enumSimNao" text="text" campo="value" '+
                 'required="true"></jmj-radio-label>';

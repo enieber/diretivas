@@ -1,10 +1,7 @@
-'use strict';
-
-angular.module('jmj.diretivas')
-    .directive('jmjRadioLabel', function() {
+app.directive('jmjRadioLabel', function() {
         return {
             restrict: 'E',
-            template: view,
+            templateUrl: 'radioLabel/view.html',
             scope: {
                 label: '@',
                 data: '=',
