@@ -1,10 +1,7 @@
-'use strict';
-
-angular.module('jmj.diretivas')
-    .directive('jmjPanelStyle', function() {
+app.directive('jmjPanelStyle', function() {
         return {
             restrict: 'E',
-            template: 'panelStyle/view.html',
+            templateUrl: 'panelStyle/view.html',
             scope:{
                 style: '@'
             },
