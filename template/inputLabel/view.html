@@ -1,7 +1,6 @@
 <jmj-label id="{{id}}" label="{{label}}" required="{{required}}"></jmj-label>
 <div>
-    <input id="{{id}}" type="{{type || 'text'}}" name="{{id}}" class="form-control form-control-2 form-control-padding" ng-model="model"
-           ng-maxlength="maxlength" ng-minlength="minlength" maxlength="{{maxlength}}"
+    <input id="{{id}}" type="{{type || 'text'}}" name="{{id}}" class="form-control form-control-2 form-control-padding" ng-model="model" minlength="{{minlength}}" maxlength="{{maxlength}}"
            placeholder="{{placeholder}}" aria-describedby="input text"  ng-disabled="{{disabled != undefined}}"
            pattern="{{pattern.pattern}}" ng-required="{{ required != undefined}}"
            uib-tooltip="{{tooltip}}" tooltip-placement="bottom" tooltip-trigger="focus" tooltip-enable="!model">
