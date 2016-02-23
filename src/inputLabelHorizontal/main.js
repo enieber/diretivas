@@ -6,6 +6,7 @@ app.directive('jmjInputLabelHorizontal', function() {
                 label: '@',
                 id: '@',
                 name: '@',
+                type: '@',
                 maxlength: '@',
                 minlength: '@',
                 placeholder: '@',

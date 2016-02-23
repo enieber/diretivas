@@ -1,7 +1,7 @@
 
 <jmj-label id="{{id}}" label="{{label}}" required="{{required}}" class="{{requerido}} col-md-5 col-sm-5 col-xs-6 control-label text-right padding-top-7"></jmj-label>
 <div class="col-md-7 col-sm-7 col-xs-6 ">
-    <input id="{{id}}" type="text" name="{{id}}" class="form-control form-control-3" ng-model="model"
+    <input id="{{id}}" type="{{ type || 'text'}}" name="{{id}}" class="form-control form-control-3" ng-model="model"
            ng-maxlength="maxlength" ng-minlength="minlength" maxlength="{{maxlength}}"
            placeholder="{{placeholder}}" aria-describedby="input text"  ng-disabled="disabled == 'true' ? true : false"
            pattern="{{pattern.pattern}}" ng-required="{{ required != undefined}}"

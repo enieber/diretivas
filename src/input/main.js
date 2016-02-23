@@ -5,6 +5,7 @@ app.directive('jmjInput', function() {
             scope: {
                 id: '@',
                 name: '@',
+                type: '@',
                 maxlength: '@',
                 minlength: '@',
                 placeholder: '@',

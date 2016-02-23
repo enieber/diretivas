@@ -18,7 +18,8 @@ describe('Teste inputLabel', function () {
    }
 
    it('deve invalidar o input se for required=true e não for preenchido', function () {
-       var input = getCompiledElement('<jmj-input-label label="3 - Nº Guia Referenciada" required="true"></jmj-input-label>', $scope);
+       var input = getCompiledElement('<jmj-input-label id="guia" label="Guia" required="true">'+
+       '</jmj-input-label>', $scope);
        expect(input.find('input').hasClass('ng-invalid')).toEqual(true);
    });
 
@@ -36,6 +37,18 @@ describe('Teste inputLabel', function () {
   it('deve abilitar o campo se não for colocado o atributo disable=true', function () {
       var input = getCompiledElement('<jmj-input-label label="Teste" model="test"></jmj-input-label>', $scope);
       expect(input.find('input').attr('disabled')).toBeUndefined();
+  });
+
+  it('deve receber o tipo do input', function() {
+      var type = getCompiledElement('<jmj-input-label id="test" type="number" '+
+      'label="Teste" model="test"></jmj-input-label>', $scope);
+      expect(type.find('input').attr('type')).toEqual('number');
+  });
+
+  it('deve vir por default o type=text', function () {
+      var typeText = getCompiledElement('<jmj-input-label id="test"'+
+      'label="Teste" model="test"></jmj-input-label>', $scope);
+      expect(typeText.find('input').attr('type')).toEqual('text');
   });
 
 });
