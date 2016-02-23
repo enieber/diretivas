@@ -1,7 +1,7 @@
 app.directive('jmjValidate', function() {
         return {
             restrict: 'E',
-            template: 'validate/view.html',
+            templateUrl: 'validate/view.html',
             transclude: true,
             controller: ['$scope', function ($scope) {
                 $scope.$on('jmjValidateEvent', function (evento, elemento) {
