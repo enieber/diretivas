@@ -35,7 +35,6 @@ describe('Teste inputLabelHorizontal', function () {
 
     it('deve ficar sem o asterisco quando não for required', function(){
         var label = getCompiledElement('<jmj-input-label-horizontal id="test"  label="Teste"></<jmj-input-label-horizontal >', $scope);
-        console.log(label);
         expect(label.find('label').text()).toEqual("Teste:");
     });
 });

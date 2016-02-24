@@ -20,7 +20,7 @@ describe('Teste dateInputLabel', function () {
     it('deve validar o input se data for required e for digitada', function () {
         $scope.test = new Date();
         var date = getCompiledElement('<jmj-date-input-label id="input"   model="test" label="Data Atendimento" required="true"></jmj-date-input-label>', $scope);
-        expect(date.find('input').hasClass('ng-valid')).toEqual(true);
+        expect(date.find('input').hasClass('ng-invalid')).toEqual(false);
     });
 
     it('deve invalidar o input se data for required e não for digitada', function () {

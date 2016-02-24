@@ -5,6 +5,8 @@ app.directive('jmjDateInputLabel', function() {
             scope : {
                 label : '@',
                 id: '@',
+                required: '@',
+                styleClass: '@',
                 maxlength: '@',
                 minlength: '@',
                 placeholder: '@',

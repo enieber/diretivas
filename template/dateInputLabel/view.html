@@ -1,12 +1,11 @@
 <div class="form-group">
-    <jmj-label id="{{id}}" label="{{label}}"></jmj-label>
+    <label for="{{id}}" class="{{requerido}}">{{label}}<span ng-show="{{required != undefined}}" class="required" >*</span>:</label>
     <div class="input-group">
         <span class="input-group-addon" id="basic-addon1"><i class="fa fa-calendar"></i></span>
-        <input id="{{id}}" type="date" class="form-control form-control-2 form-control-padding"  ng-model="model"
-               required="{{ required != undefined}}" placeholder="dd/mm/aaaa"
-               aria-describedby="date inputText">
+        <input id="{{id}}" type="date" class="form-control form-control-2 form-control-padding {{styleClass}}"
+         ng-model="model" required="{{ required != undefined}}" placeholder="dd/mm/aaaa"
+          aria-describedby="date inputText">
 
        <jmj-validate></jmj-validate>
     </div>
 </div>
-
