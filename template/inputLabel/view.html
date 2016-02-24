@@ -1,8 +1,11 @@
+<div class="form-group">
 <jmj-label id="{{id}}" label="{{label}}" class="{{ requerido}}" required="{{ required != undefined}}"></jmj-label>
+
 <div>
     <input id="{{id}}" type="{{type || 'text'}}" name="{{id}}" class="form-control form-control-2 form-control-padding" ng-model="model" minlength="{{minlength}}" maxlength="{{maxlength}}"
     ng-maxlength="maxlength" ng-minlength="minlength"  placeholder="{{placeholder}}" aria-describedby="input text"  ng-disabled="{{disabled != undefined}}" pattern="{{pattern.pattern}}" ng-required="{{ required != undefined}}"
     uib-tooltip="{{tooltip}}" tooltip-placement="bottom" tooltip-trigger="focus" tooltip-enable="!model">
 
    <jmj-validate></jmj-validate>
+</div>
 </div>

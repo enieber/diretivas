@@ -1,15 +1,13 @@
-<div>
-    <div class="">
-      <label for="{{id}}" class="{{required ? 'requerido':''}}">{{label}}:</label><span class="required" ng-if="required">*</span>
-      <jmj-label id="{{id}}" label="{{label}}"></jmj-label>
-    </div>
-    <div>
-        <input id="{{id}}" type="time" class="form-control form-control-2 form-control-padding"  ng-model="model"
-               required="{{ required != undefined}}" placeholder="01:01"
-               aria-describedby="time input"
-               uib-tooltip="{{tooltip}}" tooltip-placement="bottom"
-               tooltip-trigger="focus" tooltip-enable="!model">
+<div class="form-group">
+  <jmj-label id="{{id}}" label="{{label}}"></jmj-label>
+<div class="input-group">
+    <span class="input-group-addon" id="basic-addon1"><i class="fa fa-clock-o"></i></span>
+    <input id="{{id}}" type="time" class="form-control form-control-2 form-control-padding"  ng-model="model"
+           required="{{ required != undefined}}" placeholder="hh:mm"
+           aria-describedby="time input"
+           uib-tooltip="{{tooltip}}" tooltip-placement="bottom"
+           tooltip-trigger="focus" tooltip-enable="!model">
 
-       <jmj-validate></jmj-validate>
-    </div>
+   <jmj-validate></jmj-validate>
+</div>
 </div>
