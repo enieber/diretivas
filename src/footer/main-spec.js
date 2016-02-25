@@ -23,6 +23,6 @@ describe('Teste footer ', function () {
 
     it('deve definir a verção e a empresa', function () {
         var footer = getCompiledElement('<jmj-footer model="test" year="2014 - 2016" version="1.8" company="JMJ Sistemas"></jmj-footer>', $scope);
-        expect(footer.find('footer').text()).toEqual('Version1.8Copyright © 2014 - 2016 JMJ Sistemas. All rights reserved.');
+        expect(footer.find('footer').text()).toEqual('Version 1.8Copyright © 2014 - 2016 JMJ Sistemas. All rights reserved.');
     })
 });
