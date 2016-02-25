@@ -1,4 +1,4 @@
-xdescribe('Teste autoComplete', function () {
+describe('Teste autoComplete', function () {
 
     var $compile, $scope;
 
@@ -44,5 +44,5 @@ xdescribe('Teste autoComplete', function () {
           'data="lang" pesquisa="seachLang"></jmj-autocomplete>', $scope);
         console.log(auto.find('div'));
         expect(auto).toEqual(true);
-    });    
+    });
 });
