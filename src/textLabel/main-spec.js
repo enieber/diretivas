@@ -23,4 +23,17 @@ describe('Teste textLabel', function () {
             ' model="model.observacao" required="true"></jmj-text-label></form>', $scope);
         expect($scope.sampleForm.$invalid).toEqual(true);
     });
+
+          it('deve conter o label passado por parametro', function () {
+              var text = getCompiledElement('<jmj-text-label label="Teste"' +
+                  ' model="model.observacao" required="true"></jmj-text-label>', $scope);
+              expect(text.find('label').text()).toEqual("Teste*:");
+          });
+
+          it('deve ficar sem o asterisco quando não for required', function(){
+              var text = getCompiledElement('<jmj-text-label label="Teste"' +
+                  ' model="model.observacao"></jmj-text-label>', $scope);
+              expect(text.find('label').text()).toEqual("Teste:");
+          });
+
 });

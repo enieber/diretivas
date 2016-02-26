@@ -18,7 +18,7 @@ describe('Teste selectLabel', function () {
    }
 
 
-    beforeEach(function() {    
+    beforeEach(function() {
         $scope.usuarios = [
             {   id: 2,
                 nome: 'Ranlive', perfis:[
@@ -67,4 +67,27 @@ describe('Teste selectLabel', function () {
        'required="true"></jmj-select-label>', $scope);
        expect($scope.usuario.nome).toEqual('Enieber');
    });
+
+   it('deve conter o label passado por parametro', function () {
+       $scope.defaultValue = function(value){
+           return value.id == 2;
+       };
+
+       var select = getCompiledElement('<jmj-select-label label="Teste"'+
+     'model="usuario" data="usuarios" campo="nome" default="defaultValue"'+
+     'required="true"></jmj-select-label>', $scope);
+       expect(select.find('label').text()).toEqual("Teste*:");
+   });
+
+   it('deve ficar sem o asterisco quando não for required', function(){
+       $scope.defaultValue = function(value){
+           return value.id == 2;
+       };
+
+       var select = getCompiledElement('<jmj-select-label label="Teste"'+
+     'model="usuario" data="usuarios" campo="nome" default="defaultValue"'+
+     '></jmj-select-label>', $scope);
+       expect(select.find('label').text()).toEqual("Teste:");
+   });
+
 });

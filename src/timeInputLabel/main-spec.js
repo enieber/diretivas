@@ -27,4 +27,16 @@ describe('Teste timeInputLabel', function () {
         var date = getCompiledElement('<jmj-time-input-label id="input"   model="test" label="Data Atendimento" required="true"></jmj-time-input-label>', $scope);
         expect(date.find('input').hasClass('ng-invalid')).toEqual(true);
     });
+
+      it('deve conter o label passado por parametro', function () {
+          var date = getCompiledElement('<jmj-time-input-label id="input"   model="test" label="Teste"'+
+          'required="true"></jmj-time-input-label>', $scope);
+          expect(date.find('label').text()).toEqual("Teste*:");
+      });
+
+      it('deve ficar sem o asterisco quando não for required', function(){
+          var date = getCompiledElement('<jmj-time-input-label id="input"   model="test" label="Teste"'+
+          '></jmj-time-input-label>', $scope);
+          expect(date.find('label').text()).toEqual("Teste:");
+      });
 });

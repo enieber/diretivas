@@ -1,12 +1,13 @@
-<div>
-    <jmj-label id="{{id}}" label="{{label}}" required="{{required}}"></jmj-label>
-</div>
-<div>
-    <select name="{{id}}" class="form-control form-control-2"
-            ng-disabled="{{disabled != undefined}}"
-            ng-options="select[campo] for select in data track by select[campo]"
-            ng-model="model" aria-describedby="select component">
-        <option class="form-control" value=''>Selecione</option>
-    </select>
-    <jmj-validate></jmj-validate>
+<div class="form-group">
+    <label for="{{id}}" class="{{requerido}}">{{label}}<span ng-if="required" class="required" >*</span>:
+    </label>
+    <div>
+        <select name="{{id}}" class="form-control form-control-2"
+                ng-disabled="{{disabled != undefined}}"
+                ng-options="select[campo] for select in data track by select[campo]"
+                ng-model="model" aria-describedby="select component">
+            <option class="form-control" value=''>Selecione</option>
+        </select>
+        <jmj-validate></jmj-validate>
+    </div>
 </div>

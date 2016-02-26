@@ -1,7 +1,6 @@
-<div>
-    <div>
-        <jmj-label id="{{id}}" label="{{label}}" required="{{required}}"></jmj-label>
-    </div>
+<div class="form-group">
+    <label for="{{id}}" class="{{requerido}}">{{label}}<span ng-if="required" class="required" >*</span>:
+    </label>
     <div>
         <div>
             <label class="{{space}}" ng-repeat="radio in data">
@@ -12,4 +11,5 @@
         </div>
         <jmj-validate></jmj-validate>
     </div>
+</div>
 </div>

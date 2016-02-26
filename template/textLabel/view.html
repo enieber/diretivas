@@ -1,7 +1,6 @@
-<div>
-    <div class="">
-      <label for="{{id}}" class="{{requerido}}">{{label}}:</label>
-    </div>
+<div class="form-group">
+    <label for="{{id}}" class="{{requerido}}">{{label}}<span ng-if="required" class="required" >*</span>:
+    </label>
     <div>
         <textarea id="{{id}}" class="form-control form-control-2"
                   ng-model="model" ng-maxlength="maxlength" ng-minlength="minlength"

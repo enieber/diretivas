@@ -51,4 +51,15 @@ describe('Teste inputLabel', function () {
       expect(typeText.find('input').attr('type')).toEqual('text');
   });
 
+  it('deve conter o label passado por parametro', function () {
+      var typeText = getCompiledElement('<jmj-input-label id="test"'+
+      'label="Teste" model="test" required="true"></jmj-input-label>', $scope);
+      expect(typeText.find('label').text()).toEqual("Teste*:");
+  });
+
+  it('deve ficar sem o asterisco quando não for required', function(){
+      var typeText = getCompiledElement('<jmj-input-label id="test"'+
+      'label="Teste" model="test"></jmj-input-label>', $scope);
+      expect(typeText.find('label').text()).toEqual("Teste:");
+  });
 });

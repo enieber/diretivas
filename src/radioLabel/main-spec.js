@@ -84,4 +84,25 @@ describe('Teste radioLabel', function () {
         getCompiledElement(templete, $scope);
         expect($scope.model.dadosBeneficiario.atendimentoRN.value).toEqual('S');
     });
+
+    it('deve conter o label passado por parametro', function () {
+        var template = '<jmj-radio-label id="atendimento" name="atendimento" label="Teste" ' +
+            'model="atendimentoRN"'+
+            'data="enumSimNao" text="text" campo="value" '+
+            'required="true"></jmj-radio-label>';
+
+        var text = getCompiledElement(template, $scope);
+        expect(text.find('label').text()).toContain("Teste*:");
+    });
+
+    it('deve ficar sem o asterisco quando não for required', function(){
+        var template = '<jmj-radio-label id="atendimento" name="atendimento" label="Teste" ' +
+            'model="atendimentoRN"'+
+            'data="enumSimNao" text="text" campo="value" '+
+            '></jmj-radio-label>';
+
+        var text = getCompiledElement(template, $scope);
+        expect(text.find('label').text()).toContain("Teste:");
+    });
+
 });

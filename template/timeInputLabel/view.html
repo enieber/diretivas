@@ -1,5 +1,6 @@
 <div class="form-group">
-  <jmj-label id="{{id}}" label="{{label}}"></jmj-label>
+    <label for="{{id}}" class="{{requerido}}">{{label}}<span ng-if="required" class="required" >*</span>:
+    </label>
 <div class="input-group">
     <span class="input-group-addon" id="basic-addon1"><i class="fa fa-clock-o"></i></span>
     <input id="{{id}}" type="time" class="form-control form-control-2 form-control-padding"  ng-model="model"

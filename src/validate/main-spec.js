@@ -23,11 +23,11 @@ xdescribe('Teste validate', function () {
 
         }
         var validate = getCompiledElement('<form name="form"><jmj-input id="tes" model="test"'+
-        'maxlength="5"></jmj-input><button type="submit" ng-click="sumit()"></button></form>', $scope);
-        validate.find('input').triggerHandler('focus');
+        'maxlength="5"></jmj-input><button type="submit" ng-click=""></button></form>', $scope);
         console.log(validate);
         validate.find('button').triggerHandler('click');
-        console.log(validate.find('jmj-validate'));
+        console.log(validate);
+
         expect(true).toEqual(false);
     })
 });
