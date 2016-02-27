@@ -7,15 +7,21 @@ app.directive('jmjForm', function() {
             scope: {
                 ngSubmit: '='
             },
+            controller: ['$scope', function ($scope) {
+                // $scope.provider = $provider;
+                // console.log($provider('a'));
+            }],
             link: function (scope, element) {
                 var $element = angular.element(element);
                 $element.bind('submit', function (e) {
                     e.preventDefault();
                     var form = scope.form;
-                    //verifico se o formulario é invalido
                     scope.$parent.$broadcast('submit', form);
-                    if (form.$invalid) {
-                        sandbox.errorObrigatorio();
+
+                    //verifico se o formulario é invalido
+                    if (form.$invalid ) {
+                        // scope.provider.useFunction();
+                        // sandbox.errorObrigatorio();
                         //atualizo o Scopo e paro a propagação do metodo
                         scope.$apply();
                         return;

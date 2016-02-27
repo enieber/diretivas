@@ -24,7 +24,8 @@ describe('Teste timeInputLabel', function () {
     });
 
     it('deve invalidar o input se data for required e não for digitada', function () {
-        var date = getCompiledElement('<jmj-time-input-label id="input"   model="test" label="Data Atendimento" required="true"></jmj-time-input-label>', $scope);
+        var date = getCompiledElement('<jmj-time-input-label id="input"   model="test" '+
+        'label="Data Atendimento" required="true"></jmj-time-input-label>', $scope);
         expect(date.find('input').hasClass('ng-invalid')).toEqual(true);
     });
 

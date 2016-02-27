@@ -4,6 +4,7 @@ const concat = require('gulp-concat-util');
 const minifyHTML = require('gulp-minify-html');
 const templateCache = require('gulp-angular-templatecache');
 const Server = require('karma').Server;
+// const jshint = require('gulp-jshint');
 
 const custom_module_name = "jmj.diretivas";
 const main_module = 'jmj-diretivas.js';
@@ -55,8 +56,10 @@ const templateName = 'template.js';
            .pipe(gulp.dest(destiny.dist))
     });
 
-    gulp.task('watch', function() {
-        gulp.watch([source.js], ['test']);
-        gulp.watch([destiny.dist], ['test']);
-    });
+    // gulp.task('lint', function() {
+    //   return gulp.src(source.js)
+    //     .pipe(jshint())
+    //     .pipe(jshint.reporter('default'));
+    // });
+
 gulp.task('default', ['watch']);

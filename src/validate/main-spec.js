@@ -1,4 +1,4 @@
-xdescribe('Teste validate', function () {
+describe('Teste validate', function () {
 
     var $compile, $scope;
 
@@ -17,17 +17,12 @@ xdescribe('Teste validate', function () {
         return compiledDirective;
     }
 
-    it('deve mostrar que o tamanho maximo é 5', function () {
-        $scope.test = '123456';
-        $scope.submit = function () {
-
-        }
-        var validate = getCompiledElement('<form name="form"><jmj-input id="tes" model="test"'+
+    it('deve mostrar que só recebe numero', function () {
+        $scope.test = 123456;
+        var validate = getCompiledElement('<form name="form"><jmj-input type="number" id="tes" model="test"'+
         'maxlength="5"></jmj-input><button type="submit" ng-click=""></button></form>', $scope);
-        console.log(validate);
         validate.find('button').triggerHandler('click');
-        console.log(validate);
-
+        console.log(validate.find('jmj-validate'));
         expect(true).toEqual(false);
     })
 });

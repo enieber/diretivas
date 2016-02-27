@@ -7,8 +7,10 @@
     "test": "grunt test"
   },
   "devDependencies": {
+    "gulp-jshint": "^2.0.0",
     "http-server": "^0.6.1",
     "jasmine-core": "^2.4.1",
+    "jshint": "^2.9.1",
     "karma": "^0.13.15",
     "karma-chrome-launcher": "^0.2.2",
     "karma-coverage": "^0.5.3",
@@ -32,7 +34,7 @@
   },
   "homepage": "https://github.com/jmjsistemas/diretivas#readme",
   "dependencies": {
-    "angular": "^1.5.0",    
+    "angular": "^1.5.0",
     "angular-mocks": "^1.5.0",
     "angular-sanitize": "^1.5.0",
     "gulp": "^3.9.1",

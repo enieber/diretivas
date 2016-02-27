@@ -7,7 +7,7 @@ describe('Teste form', function () {
        inject(function($injector){
            $compile = $injector.get('$compile');
            $scope = $injector.get('$rootScope');
-       });
+       });       
    });
 
    function getCompiledElement(template){
@@ -24,7 +24,8 @@ describe('Teste form', function () {
 
     it('deve validar o form', function(){
         $scope.test = 'teste';
-        var directiveElem = getCompiledElement('<jmj-form name="form" ng-submit="submit()"><input type="test" ng-model="test" required></jmj-form>', $scope);
+        var directiveElem = getCompiledElement('<jmj-form name="form" ng-submit="submit()">'+
+            '<input type="test" ng-model="test" required></jmj-form>', $scope);
         expect(directiveElem.hasClass('ng-valid')).toEqual(true);
     });
 });
