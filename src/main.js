@@ -1,1 +1,1 @@
-var app = angular.module('jmj.diretivas', ['toastr']);
+var app = angular.module('jmj.diretivas', []);
