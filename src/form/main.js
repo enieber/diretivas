@@ -5,7 +5,8 @@ app.directive('jmjForm', function() {
             transclude: true,
             replace: true,
             scope: {
-                ngSubmit: '='
+                ngSubmit: '=',
+                exception: '='
             },
             link: function (scope, element) {
 
@@ -18,9 +19,7 @@ app.directive('jmjForm', function() {
 
                     //verifico se o formulario é invalido
                     if (form.$invalid ) {
-                        // scope.provider.useFunction();
-                        toastr.error('Campo(s) obrigatório(s) não preenchido(s)!', 'Ops!');
-                        //atualizo o Scopo e paro a propagação do metodo
+                        scope.exception();
                         scope.$apply();
                         return;
                     }
