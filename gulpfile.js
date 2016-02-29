@@ -49,7 +49,7 @@ const templateName = 'template.js';
     });
 
     gulp.task('js', ['templates'], function(){
-       return gulp.src([source.toastr, source.js, source.jsTest, source.templateTemp])
+       return gulp.src([source.js, source.jsTest, source.templateTemp])
            .pipe(minifyJS())
            .pipe(concat(main_module))
            .pipe(concat.header(js_header))
