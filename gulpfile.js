@@ -1,9 +1,9 @@
 const gulp = require('gulp');
+const Server = require('karma').Server;
 const minifyJS = require('gulp-uglify');
 const concat = require('gulp-concat-util');
 const minifyHTML = require('gulp-minify-html');
 const templateCache = require('gulp-angular-templatecache');
-const Server = require('karma').Server;
 // const jshint = require('gulp-jshint');
 
 const custom_module_name = "jmj.diretivas";
@@ -16,7 +16,8 @@ const templateName = 'template.js';
         templates: 'template/**/*.html',
         js: 'src/**/*.js',
         jsTest: '!src/**/*-spec.js',
-        templateTemp: 'tmp/**/*.js'
+        templateTemp: 'tmp/**/*.js',
+        toastr: 'node_modules/toastr/build/toastr.min.js'
     };
 
     const destiny = {
@@ -48,7 +49,7 @@ const templateName = 'template.js';
     });
 
     gulp.task('js', ['templates'], function(){
-       return gulp.src([source.js, source.jsTest, source.templateTemp])
+       return gulp.src([source.js, source.jsTest, source.templateTemp, source.toastr])
            .pipe(minifyJS())
            .pipe(concat(main_module))
            .pipe(concat.header(js_header))
