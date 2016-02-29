@@ -1,4 +1,7 @@
 angular.module('app', ['jmj.diretivas'])
     .controller('controller',function ($scope) {
-        $scope.class = 'bgcolor3 branco';
+      $scope.model = {};
+      $scope.submit = function () {
+        // toastr.error('Are you the 6 fingered man?');
+      }
 });

@@ -1,4 +1,4 @@
-describe('Teste validate', function () {
+xdescribe('Teste validate', function () {
 
     var $compile, $scope;
 

@@ -6,13 +6,14 @@
         <title>Example of how to use Directives</title>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"             charset="utf-8">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" charset="utf-8">
+        <link href="/node_modules/toastr/build/toastr.css" rel="stylesheet"/>
     </head>
     <body ng-app="app">
         <div ng-controller="controller">
 
-                <jmj-form name="form" ng-submit="submit()">
-                    <jmj-input-label id="teste" model="model" label="Teste" required="true" minlength="10"></jmj-input-label>
-                    {{model}}
+                <jmj-form model="form" ng-submit="submit()">
+                    <jmj-input-label id="teste" model="model.testss" label="Teste" required="true" minlength="10"></jmj-input-label>
+
 
 
 
@@ -30,19 +31,20 @@
                         </div>
                     </div>
                 </jmj-panel-style>
-                <jmj-date-input-label id="test" label="test" model="test"
+                <jmj-date-input-label id="test" label="test" model="model.test"
                  class="col-lg-3 col-md-3 col-sm-6 col-xs-6"></jmj-date-input-label>
-                <jmj-input-label id="ted" label="Input" class="col-lg-3 col-md-3 col-sm-6 col-xs-6 " model="tortoise" ></jmj-input-label>
-                <jmj-input-label id="ted2" label="Input2" class="col-lg-3 col-md-3 col-sm-6 col-xs-6" model="tortoise2" ></jmj-input-label>
-                <jmj-input-label id="ted3" label="Input3" class="col-lg-3 col-md-3 col-sm-6 col-xs-6" model="tortoise3" ></jmj-input-label>
-                <button type="submit" name="button">Enviar</button>
+                <jmj-input-label id="ted" label="Input" class="col-lg-3 col-md-3 col-sm-6 col-xs-6 " model="model.ted" ></jmj-input-label>
+                <jmj-input-label id="ted2" label="Input2" class="col-lg-3 col-md-3 col-sm-6 col-xs-6" model="model.ted2" ></jmj-input-label>
+                <jmj-input-label id="ted3" label="Input3" class="col-lg-3 col-md-3 col-sm-6 col-xs-6" model="model.ted3" ></jmj-input-label>
+                <button type="submit" name="button" ng-click="submit()">Enviar</button>
             </jmj-form>
 
         </div>
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script>
         <script src="app.js"></script>
-        <script src="../dist/jmj-diretivas.js"></script>
         <script src="https://code.jquery.com/jquery-2.2.1.min.js"></script>
+        <script src="/node_modules/toastr/build/toastr.min.js"></script>
+        <script src="../dist/jmj-diretivas.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
         <script src="http://code.jquery.com/jquery-2.0.2.min.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js"></script>

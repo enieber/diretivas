@@ -62,4 +62,4 @@ const templateName = 'template.js';
     //     .pipe(jshint.reporter('default'));
     // });
 
-gulp.task('default', ['watch']);
+gulp.task('default', ['test']);

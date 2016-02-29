@@ -7,21 +7,19 @@ app.directive('jmjForm', function() {
             scope: {
                 ngSubmit: '='
             },
-            controller: ['$scope', function ($scope) {
-                // $scope.provider = $provider;
-                // console.log($provider('a'));
-            }],
             link: function (scope, element) {
+
                 var $element = angular.element(element);
                 $element.bind('submit', function (e) {
                     e.preventDefault();
+
                     var form = scope.form;
                     scope.$parent.$broadcast('submit', form);
 
                     //verifico se o formulario é invalido
                     if (form.$invalid ) {
                         // scope.provider.useFunction();
-                        // sandbox.errorObrigatorio();
+                        toastr.error('Campo(s) obrigatório(s) não preenchido(s)!', 'Ops!');
                         //atualizo o Scopo e paro a propagação do metodo
                         scope.$apply();
                         return;
