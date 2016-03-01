@@ -14,35 +14,23 @@
         <div ng-controller="controller">
 
                 <jmj-form ng-submit="submit" exception="exception">
-                    <!-- <jmj-input-label id="teste" model="model.testss" label="Teste" required="true" minlength="10"></jmj-input-label> -->
+                    <jmj-input-label id="teste" model="model.testss" label="Teste" required="true" minlength="10"></jmj-input-label>
 
+                    <jmj-date-input-label id="test" label="test" model="test"
+                 class="col-lg-3 col-md-3 col-sm-6 col-xs-6" required="true" btnbar="true">
+                </jmj-date-input-label>
+                    <jmj-date-input-label id="test" label="test" model="test"
+                 class="col-lg-3 col-md-3 col-sm-6 col-xs-6" required="true" btnbar="true">
+                </jmj-date-input-label>
 
-
-
-                <!-- <jmj-panel-style >
-                    <div class="form-group ">
-                        <div class="col-lg-4 col-md-5 col-sm-6 col-xs-12 pull-right">
-                            <jmj-input-label-horizontal id="guiaPrincipal" type="number" label="3 - Guia Principal"
-                                                        model="model.guiaPrincipal" maxlength="20" class="col-md4"
-                                                        required="true"></jmj-input-label-horizontal>
-                        </div>
-                        <div class="col-lg-4 col-md-5 col-sm-6 col-xs-12 pull-right">
-                            <jmj-input-label-horizontal id="guiaPrestador" type="number" label="2 - N° Guia do Prestador"
-                                                        model="model.guiaPrestador" maxlength="20" class="col-md4"
-                                                        pattern="patterns.codigo" required="true"></jmj-input-label-horizontal>
-                        </div>
-                    </div>
-                </jmj-panel-style> -->
-                <jmj-date-input-label id="test" label="test" model="test"
-                 class="col-lg-3 col-md-3 col-sm-6 col-xs-6" required="true" btnbar="true" open="open" disabled="true"></jmj-date-input-label>
-                 {{test}}
-                <!-- <jmj-input-label id="ted" label="Input" class="col-lg-3 col-md-3 col-sm-6 col-xs-6 " model="model.ted" ></jmj-input-label>
+                <jmj-input-label id="ted" label="Input" class="col-lg-3 col-md-3 col-sm-6 col-xs-6 " model="model.ted" ></jmj-input-label>
                 <jmj-input-label id="ted2" label="Input2" class="col-lg-3 col-md-3 col-sm-6 col-xs-6" model="model.ted2" ></jmj-input-label>
-                <jmj-input-label id="ted3" label="Input3" class="col-lg-3 col-md-3 col-sm-6 col-xs-6" model="model.ted3" ></jmj-input-label> -->
+                <jmj-input-label id="ted3" label="Input3" class="col-lg-3 col-md-3 col-sm-6 col-xs-6" model="model.ted3" ></jmj-input-label>
                 <button type="submit" name="button" class="btn btn-success">Enviar</button>
             </jmj-form>
 
         </div>
+        <script src="https://code.jquery.com/jquery-2.2.1.min.js"></script>
         <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.js"></script>
         <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular-animate.js"></script>
         <script src="http://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-1.2.1.js"></script>

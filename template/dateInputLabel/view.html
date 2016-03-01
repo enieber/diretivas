@@ -5,9 +5,9 @@
         <input type="text" class="form-control {{styleClass}}"
             ng-model="model" ng-required="required"
             uib-datepicker-popup="{{'dd/MM/yyyy' || format}}"
-            is-open="$parent.popup.opened" show-button-bar="btnbar"
+            is-open="opened" show-button-bar="btnbar" datepicker-options="options"
             close-text="Fechar" current-text="Hoje" clear-text="Limpar"
-            ng-disabled="disabled"/>            
+            ng-disabled="disabled"/>
          <span class="input-group-btn">
            <button type="button" class="btn btn-default" ng-click="open()">
              <i class="fa fa-calendar"></i>

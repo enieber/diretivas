@@ -1,4 +1,19 @@
-app.directive('jmjForm', function() {
+app.provider('jmjFormConfig', function(){
+  var _exception;
+
+  this.setException = function(val){
+    _exception = val;
+  };
+
+  this.$get = [function(){
+      return {
+        exception: _exception
+      };
+    }
+  ];
+
+})
+.directive('jmjForm', function() {
         return {
             restrict: 'E',
             templateUrl: 'form/view.html',
@@ -8,6 +23,9 @@ app.directive('jmjForm', function() {
                 ngSubmit: '=',
                 exception: '='
             },
+            controller: ['$scope', 'jmjFormConfig', function($scope, $provider){
+              $scope.provider = $provider;
+            }],
             link: function (scope, element) {
 
                 var $element = angular.element(element);
@@ -19,7 +37,8 @@ app.directive('jmjForm', function() {
 
                     //verifico se o formulario é invalido
                     if (form.$invalid ) {
-                        scope.exception();
+                        var exception = scope.exception || scope.provider.exception;
+                        exception && exception();
                         scope.$apply();
                         return;
                     }

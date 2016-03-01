@@ -2,7 +2,9 @@
     <label for="{{id}}" class="{{requerido}}">{{label}}<span ng-if="required" class="required" >*</span>:
     </label>
 <div class="input-group">
-    <span class="input-group-addon" id="basic-addon1"><i class="fa fa-clock-o"></i></span>
+    <!-- <uib-timepicker  id="{{id}}" ng-model="model"
+    hour-step="hstep || 1" minute-step="mstep || 1"
+    show-meridian="ismeridian"></uib-timepicker> -->
     <input id="{{id}}" type="time" class="form-control form-control-2 form-control-padding"  ng-model="model"
            required="{{ required != undefined}}" placeholder="hh:mm"
            aria-describedby="time input"

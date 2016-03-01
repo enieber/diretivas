@@ -3,15 +3,9 @@ app.directive('jmjTimeInputLabel', function() {
             restrict: 'E',
             templateUrl: 'timeInputLabel/view.html',
             scope : {
-                label: '@',
                 id: '@',
+                label: '@',
                 name: '@',
-                maxlength: '@',
-                minlength: '@',
-                placeholder: '@',
-                pattern: '=',
-                mensagem: '@',
-                tooltip: '@',
                 model: '=',
                 required: '@',
                 disabled : '@'
