@@ -7,11 +7,12 @@ app.directive('jmjDateInputLabel', function() {
                 id: '@',
                 required: '@',
                 styleClass: '@',
-                maxlength: '@',
-                minlength: '@',
+                options: '@',
                 placeholder: '@',
-                pattern: '@',
                 model : '=',
+                format: '@',
+                open: '=',
+                btnbar: '@',
                 disabled : '@'
             }
         };

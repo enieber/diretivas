@@ -1,12 +1,19 @@
 <div class="form-group">
     <label for="{{id}}" class="{{requerido}}">{{label}}<span ng-if="required" class="required" >*</span>:
     </label>
-    <div class="input-group">
-        <span class="input-group-addon" id="basic-addon1"><i class="fa fa-calendar"></i></span>
-        <input id="{{id}}" type="date" class="form-control form-control-2 form-control-padding {{styleClass}}"
-         ng-model="model" required="{{ required != undefined}}" placeholder="dd/mm/aaaa"
-          aria-describedby="date inputText">
-
+    <p class="input-group">
+        <input type="text" class="form-control {{styleClass}}"
+            ng-model="model" ng-required="required"
+            uib-datepicker-popup="{{'dd/MM/yyyy' || format}}"
+            is-open="$parent.popup.opened" show-button-bar="btnbar"
+            close-text="Fechar" current-text="Hoje" clear-text="Limpar"
+            ng-disabled="disabled"/>            
+         <span class="input-group-btn">
+           <button type="button" class="btn btn-default" ng-click="open()">
+             <i class="fa fa-calendar"></i>
+           </button>
+         </span>
+    </p>
        <jmj-validate></jmj-validate>
     </div>
 </div>
