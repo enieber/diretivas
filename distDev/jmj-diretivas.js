@@ -77,45 +77,48 @@ app.provider('jmjDateInputLabelConfig', function(){
                 btnbar: '@',
                 disabled : '@'
             },
+            // link: function (scope, iElement, iAtrrs, ngModelCtrl) {
+            //   var _formatDate = function(date) {
+            //      if (date) {
+            //       date = date.replace(/[^0-9]+/g, "");
+            //      }
+            //
+            //      if (date && date.length > 2) {
+            //        var dia = new Number(date.substring(0, 2));
+            //
+            //        if (dia > 31) {
+            //          date = "01" + date.substring(2);
+            //        }
+            //
+            //       date = date.substring(0, 2) + "/" + date.substring(2);
+            //      }
+            //
+            //      if (date && date.length > 5) {
+            //        var mes = new Number(date.substring(3, 5));
+            //
+            //        if (mes > 12) {
+            //          date = "01/01" + +date.substring(5);
+            //        }
+            //
+            //        date = date.substring(0, 5) + "/" + date.substring(5, 9);
+            //      }
+            //
+            //      return date;
+            //   };
+            //
+            //   ngModelCtrl.$formatters.push(function (modelValue) {
+            //     return _formatDate(modelValue);
+            //   });
+            //   ngModelCtrl.$render = function() {
+            //       scope.model   = ngModelCtrl.$viewValue.red;
+            //       scope.green = ngModelCtrl.$viewValue.green;
+            //       scope.blue  = ngModelCtrl.$viewValue.blue;
+            //   };
+            // }
             controller: ['$scope', function($scope){
               $scope.open = function(){
                 $scope.opened = true;
-              };
-              // var _formatDate = function(date) {
-              //    if (date) {
-              //     date = date.replace(/[^0-9]+/g, "");
-              //    }
-              //
-              //    if (date && date.length > 2) {
-              //      var dia = new Number(date.substring(0, 2));
-              //
-              //      if (dia > 31) {
-              //        date = "01" + date.substring(2);
-              //      }
-              //
-              //     date = date.substring(0, 2) + "/" + date.substring(2);
-              //    }
-              //
-              //    if (date && date.length > 5) {
-              //      var mes = new Number(date.substring(3, 5));
-              //
-              //      if (mes > 12) {
-              //        date = "01/01" + +date.substring(5);
-              //      }
-              //
-              //      date = date.substring(0, 5) + "/" + date.substring(5, 9);
-              //    }
-              //
-              //    return date;
-              // };
-
-            //   $scope.press = function (value) {
-            //     console.log('teste');
-            //     value = $setViewValue(_formatDate(value.$viewValue));
-            //     if(value && value.length == 10){
-            //       return $filter("date")(value, "dd/MM/yyyy");
-            //     }
-            //   };
+              };          
             }]
         };
     });
@@ -523,12 +526,12 @@ app.directive('jmjValidate', function() {
         };
     });
 
-angular.module("jmj.diretivas").run(["$templateCache", function($templateCache) {$templateCache.put("autocomplete/view.html","<jmj-label id={{id}} label={{label}} required={{required}}></jmj-label><input id={{id}} type=text name={{id}} placeholder={{placeholder}} pattern={{pattern}} class=\"form-control form-control-2\" maxlength={{maxlength}} ng-model=model ng-focus=\"selecionado = true\" ng-blur=\"selecionado = false\" ng-required=\"{{ required != undefined}}\" ng-init=\"pristine=true\" ng-minlength=minlength ng-disabled=\"{{disabled != undefined}}\" uib-typeahead=\"item as item[campo] for item in pesquisa(campo, $viewValue)\" tooltip-enable=!model tooltip-placement=bottom tooltip-trigger=focus uib-tooltip={{tooltip}} typeahead-loading=loading typeahead-no-results=noResults> <i ng-if=loading class=\"glyphicon glyphicon-refresh\"></i><div class=bg-danger ng-show=invalid>{{mensagem}}</div><div ng-if=\"noResults && selecionado\"><i class=\"glyphicon glyphicon-remove\"></i> Nenhum resultado encontrado.</div>");
-$templateCache.put("dateInputLabel/view.html","<div class=form-group><label for={{id}} class={{requerido}}>{{label}}<span ng-if=required class=required>*</span>:</label><p class=input-group><input type=text class=\"form-control {{styleClass}}\" ng-model=model ng-required=required uib-datepicker-popup=\"{{ format || \'dd/MM/yyyy\'}}\" datepicker-options=options is-open=opened show-button-bar=btnbar ng-keypress=press(this) close-text=Fechar current-text=Hoje clear-text=Limpar> <span class=input-group-btn><button type=button class=\"btn btn-default\" ng-click=open()><i class=\"fa fa-calendar\"></i></button></span></p><jmj-validate></jmj-validate></div>");
+angular.module("jmj.diretivas").run(["$templateCache", function($templateCache) {$templateCache.put("autocomplete/view.html","<jmj-label id={{id}} label={{label}} required={{required}}></jmj-label><input id={{id}} type=text name={{id}} placeholder={{placeholder}} pattern={{pattern}} class=\"form-control form-control-2 form-control-padding\" maxlength={{maxlength}} ng-model=model ng-focus=\"selecionado = true\" ng-blur=\"selecionado = false\" ng-required=\"{{ required != undefined}}\" ng-init=\"pristine=true\" ng-minlength=minlength ng-disabled=\"{{disabled != undefined}}\" uib-typeahead=\"item as item[campo] for item in pesquisa(campo, $viewValue)\" tooltip-enable=!model tooltip-placement=bottom tooltip-trigger=focus uib-tooltip={{tooltip}} typeahead-loading=loading typeahead-no-results=noResults> <i ng-if=loading class=\"glyphicon glyphicon-refresh\"></i><div class=bg-danger ng-show=invalid>{{mensagem}}</div><div ng-if=\"noResults && selecionado\"><i class=\"glyphicon glyphicon-remove\"></i> Nenhum resultado encontrado.</div>");
+$templateCache.put("dateInputLabel/view.html","<div class=form-group><label for={{id}} class={{requerido}}>{{label}}<span ng-if=required class=required>*</span>:</label><p class=input-group><input type=text class=\"form-control {{styleClass}}\" ng-model=model ng-required=required uib-datepicker-popup=\"{{ format || \'dd/MM/yyyy\'}}\" datepicker-options=options is-open=opened show-button-bar=btnbar close-text=Fechar current-text=Hoje clear-text=Limpar> <span class=input-group-btn><button type=button class=\"btn btn-default\" ng-click=open()><i class=\"fa fa-calendar\"></i></button></span></p><jmj-validate></jmj-validate></div>");
 $templateCache.put("footer/view.html","<footer class=main-footer><div class=\"pull-right hidden-xs\"><b>Version</b> {{version}}</div><strong>Copyright &copy; {{year}} <a href>{{company}}</a>.</strong> All rights reserved.</footer>");
 $templateCache.put("form/view.html","<form name=form novalidate ng-transclude></form>");
-$templateCache.put("inputIcon/view.html","<div class=\"col-sm-10 col-sm-offset-1 padding-top-10\"><div class=\"input-group margin-bottom-10\"><span class=input-group-addon id=basic-addon1><i class=\"fa {{icon}}\"></i></span> <input id={{id}} type=\"{{ type || \'text\'}}\" name={{id}} class=\"form-control form-control-2 input-active\" ng-model=model maxlength={{maxlength}} minlength={{minlength}} placeholder={{placeholder}} aria-describedby=\"input text\" ng-disabled=\"{{disabled != undefined}}\" pattern={{pattern.pattern}} ng-required=\"{{ required != undefined}}\" uib-tooltip={{tooltip}} tooltip-placement=bottom tooltip-trigger=focus tooltip-enable=!model></div></div>");
 $templateCache.put("input/view.html","<input id={{id}} type=\"{{ type || \'text\'}}\" name={{id}} class=\"form-control form-control-2 form-control-padding\" ng-model=model ng-maxlength=maxlength minlength={{minlength}} maxlength={{maxlength}} placeholder={{placeholder}} aria-describedby=\"input text\" ng-disabled=\"{{disabled != undefined}}\" pattern={{pattern.pattern}} ng-required=\"{{ required != undefined}}\" uib-tooltip={{tooltip}} tooltip-placement=bottom tooltip-trigger=focus tooltip-enable=!model><jmj-validate></jmj-validate>");
+$templateCache.put("inputIcon/view.html","<div class=\"col-sm-10 col-sm-offset-1 padding-top-10\"><div class=\"input-group margin-bottom-10\"><span class=input-group-addon id=basic-addon1><i class=\"fa {{icon}}\"></i></span> <input id={{id}} type=\"{{ type || \'text\'}}\" name={{id}} class=\"form-control form-control-2 input-active\" ng-model=model maxlength={{maxlength}} minlength={{minlength}} placeholder={{placeholder}} aria-describedby=\"input text\" ng-disabled=\"{{disabled != undefined}}\" pattern={{pattern.pattern}} ng-required=\"{{ required != undefined}}\" uib-tooltip={{tooltip}} tooltip-placement=bottom tooltip-trigger=focus tooltip-enable=!model></div></div>");
 $templateCache.put("inputLabel/view.html","<div class=form-group><label for={{id}} class={{requerido}}>{{label}}<span ng-if=required class=required>*</span>:</label><div><input id={{id}} type=\"{{type || \'text\'}}\" name={{id}} class=\"form-control form-control-2 form-control-padding\" ng-model=model minlength={{minlength}} maxlength={{maxlength}} ng-maxlength=maxlength ng-minlength=minlength placeholder={{placeholder}} aria-describedby=\"input text\" ng-disabled=\"{{disabled != undefined}}\" pattern={{pattern.pattern}} ng-required=\"{{ required != undefined}}\" uib-tooltip={{tooltip}} tooltip-placement=bottom tooltip-trigger=focus tooltip-enable=!model><jmj-validate></jmj-validate></div></div>");
 $templateCache.put("inputLabelHorizontal/view.html","<div class=form-group><label for={{id}} class=\"{{requerido}} col-md-5 col-sm-5 col-xs-5\">{{label}}<span ng-if=required class=required>*</span>:</label><div class=\"col-md-7 col-sm-7 col-xs-7\"><input id={{id}} type=\"{{ type || \'text\'}}\" name={{id}} class=\"form-control form-control-3\" ng-model=model minlength={{minlength}} maxlength={{maxlength}} placeholder={{placeholder}} aria-describedby=\"input text\" ng-disabled=\"{{disabled != undefined}}\" pattern={{pattern.pattern}} ng-required=\"{{ required != undefined}}\" uib-tooltip={{tooltip}} tooltip-placement=bottom tooltip-trigger=focus tooltip-enable=!model><jmj-validate></jmj-validate></div></div>");
 $templateCache.put("label/view.html","<label for={{id}} class={{requerido}}>{{label}}<span ng-if=\"required != undefined\" class=required>*</span>:</label>");
