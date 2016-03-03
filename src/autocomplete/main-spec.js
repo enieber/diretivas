@@ -1,4 +1,4 @@
-xdescribe('Teste autoComplete', function () {
+describe('Teste autoComplete', function () {
 
     var $compile, $scope;
 

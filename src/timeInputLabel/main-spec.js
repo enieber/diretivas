@@ -1,4 +1,4 @@
-describe('Teste timeInputLabel', function () {
+xdescribe('Teste timeInputLabel', function () {
 
     var $compile, $scope;
 

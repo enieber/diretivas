@@ -30,6 +30,21 @@
                 <jmj-input-label id="ted" label="Input" class="col-lg-3 col-md-3 col-sm-6 col-xs-6 " model="model.ted" ></jmj-input-label>
                 <jmj-input-label id="ted2" label="Input2" class="col-lg-3 col-md-3 col-sm-6 col-xs-6" model="model.ted2" ></jmj-input-label>
                 <jmj-input-label id="ted3" label="Input3" class="col-lg-3 col-md-3 col-sm-6 col-xs-6" model="model.ted3" ></jmj-input-label>
+
+                <jmj-autocomplete label="9 - Código Contratado" class="col-lg-2 col-md-4 col-sm-4 col-xs-12"
+                            model="model.contratoExecutante"
+                            campo="codigoPrestadorNaOperadora"
+                            style-class="form-control form-control-2 form-control-padding" maxlength="9"
+                            placeholder="Código Operadora" data="contrato" pesquisa="pesquisaContratado"
+                            required="true"
+                            ></jmj-autocomplete>
+
+                <jmj-autocomplete label="10 - Nome Contratado" class="col-lg-8 col-md-8 col-sm-5 col-xs-12"
+                            style-class="form-control form-control-2 form-control-padding"
+                            model="model.contratoExecutante" maxlength="70"
+                            campo="nomeContratado" pesquisa="pesquisaContratado"
+                            placeholder="Nome Contratado" data="contrato" required="true"
+                            ></jmj-autocomplete>
                 <button type="submit" name="button" class="btn btn-success">Enviar</button>
             </jmj-form>
 
