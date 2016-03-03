@@ -16,12 +16,14 @@
                 <jmj-form ng-submit="submit" exception="exception">
                     <jmj-input-label id="teste" model="model.testss" label="Teste" required="true" minlength="10"></jmj-input-label>
 
-                    <jmj-date-input-label id="test" label="test" model="test"
-                 class="col-lg-3 col-md-3 col-sm-6 col-xs-6" required="true" btnbar="true">
-                </jmj-date-input-label>
-                    <jmj-date-input-label id="test" label="test" model="test"
-                 class="col-lg-3 col-md-3 col-sm-6 col-xs-6" required="true" btnbar="true">
-                </jmj-date-input-label>
+                    <jmj-date-input-label id="test" label="test" model="model.test"
+                        class="col-lg-3 col-md-3 col-sm-6 col-xs-6" required="true" btnbar="true">
+                    </jmj-date-input-label>
+
+                    <jmj-date-input-label id="test" label="teste" model="model.test"
+                     class="col-lg-3 col-md-3 col-sm-6 col-xs-6" required="true" btnbar="true">
+                    </jmj-date-input-label>
+                    {{model.test}}
 
                 <jmj-time-input-label label="37 - Hora Inicial"
                                   model="model.horaInicial" class="col-lg-4 col-md-4 col-sm-4 col-xs-4" required="true"></jmj-time-input-label>
@@ -53,9 +55,9 @@
         <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.js"></script>
         <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular-animate.js"></script>
         <script src="http://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-1.2.1.js"></script>
-        <link href="http://netdna.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+        <script src="https://cdn.rawgit.com/angular-ui/ui-mask/master/dist/mask.min.js"></script>
         <script src="app.js"></script>
         <script src="/node_modules/toastr/build/toastr.min.js"></script>
-        <script src="../dist/jmj-diretivas.js"></script>
+        <script src="../distDev/jmj-diretivas.js"></script>
     </body>
 </html>

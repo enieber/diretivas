@@ -84,7 +84,7 @@ const templateName = 'template.js';
         }, done).start();
     });
 
-    gulp.task('developer', ['test-developer']);
+    gulp.task('dev', ['test-developer']);
 
     // gulp.task('lint', function() {
     //   return gulp.src(source.js)
@@ -92,4 +92,4 @@ const templateName = 'template.js';
     //     .pipe(jshint.reporter('default'));
     // });
 
-gulp.task('default', ['developer', 'production']);
+gulp.task('default', ['dev', 'production']);

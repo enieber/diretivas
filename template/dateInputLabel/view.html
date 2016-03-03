@@ -4,10 +4,9 @@
     <p class="input-group">
         <input type="text" class="form-control {{styleClass}}"
             ng-model="model" ng-required="required"
-            uib-datepicker-popup="{{'dd/MM/yyyy' || format}}"
-            is-open="opened" show-button-bar="btnbar" datepicker-options="options"
-            close-text="Fechar" current-text="Hoje" clear-text="Limpar"
-            ng-disabled="disabled"/>
+            uib-datepicker-popup="{{ format || 'dd/MM/yyyy'}}" datepicker-options="options"
+            is-open="opened" show-button-bar="btnbar"
+            close-text="Fechar" current-text="Hoje" clear-text="Limpar">
          <span class="input-group-btn">
            <button type="button" class="btn btn-default" ng-click="open()">
              <i class="fa fa-calendar"></i>

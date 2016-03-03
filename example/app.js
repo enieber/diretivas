@@ -1,4 +1,4 @@
-angular.module('app', ['jmj.diretivas', 'ngAnimate', 'ui.bootstrap'])
+angular.module('app', ['jmj.diretivas', 'ngAnimate', 'ui.bootstrap', 'ui.mask'])
     .config(function(jmjFormConfigProvider, jmjDateInputLabelConfigProvider){
       jmjFormConfigProvider.setException(function(){
         toastr.error('*******************OOOOPPSS NO CONFIG*******************', 'FAIL!!');
