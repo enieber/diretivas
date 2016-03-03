@@ -17,15 +17,18 @@ const templateName = 'template.js';
         js: 'src/**/*.js',
         jsTest: '!src/**/*-spec.js',
         templateTemp: 'tmp/**/*.js',
+        templateTempDev: 'tmp/**/*.js',
         toastr: 'node_modules/toastr/build/toastr.min.js'
     };
 
     const destiny = {
-        dist: 'dist'
+        dist: 'dist',
+        distDev: 'distDev'
     };
 
     const temp = {
-        tmp: 'tmp'
+        tmp: 'tmp',
+        tmpDev: 'temp-dev'
     };
 
     gulp.task('test',['js'], function (done) {
@@ -57,10 +60,36 @@ const templateName = 'template.js';
            .pipe(gulp.dest(destiny.dist))
     });
 
+    gulp.task('production', ['test']);
+
+
+    gulp.task('templates-developer', function() {
+        return gulp.src(source.templates)
+            .pipe(templateCache(templateName, { module: custom_module_name }))
+            .pipe(gulp.dest(temp.tmpDev));
+    });
+
+    gulp.task('js-developer', ['templates-developer'], function(){
+       return gulp.src([source.js, source.jsTest, source.templateTempDev])
+           .pipe(concat(main_module))
+           .pipe(concat.header(js_header))
+           .pipe(concat.footer(js_footer))
+           .pipe(gulp.dest(destiny.distDev))
+    });
+
+    gulp.task('test-developer',['js-developer'], function (done) {
+        new Server({
+            configFile: __dirname + '/karma.conf.js',
+            singleRun: true
+        }, done).start();
+    });
+
+    gulp.task('developer', ['test-developer']);
+
     // gulp.task('lint', function() {
     //   return gulp.src(source.js)
     //     .pipe(jshint())
     //     .pipe(jshint.reporter('default'));
     // });
 
-gulp.task('default', ['test']);
+gulp.task('default', ['developer', 'production']);
