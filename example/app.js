@@ -13,8 +13,20 @@ angular.module('app', ['jmj.diretivas', 'ngAnimate', 'ui.bootstrap', 'ui.mask'])
       })
     })
     .controller('controller',function ($scope, jmjFormConfig) {
+      $scope.data = new Date();
+      $scope.date = {
+        dateDisabled: disabled,
+        formatYear: 'yy',
+        maxDate: new Date(2020, 5, 22),
+        minDate: new Date(),
+        startingDay: 1
+      };
+      function disabled(data) {
+        var date = data.date,
+              mode = data.mode;
+        return mode === 'day' && (date.getDay() === 0 || date.getDay() === 6);
+      }
       $scope.model = {};
-      $scope.data = 2015-10-22;
       $scope.codSeqRef = [
           {
             "id":1,
