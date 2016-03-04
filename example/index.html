@@ -14,39 +14,11 @@
         <div ng-controller="controller">
 
                 <jmj-form ng-submit="submit" exception="exception">
-                    <jmj-input-label id="teste" model="model.testss" label="Teste" required="true" minlength="10"></jmj-input-label>
-
-                    <jmj-date-input-label id="test" label="test" model="model.test"
-                        class="col-lg-3 col-md-3 col-sm-6 col-xs-6" required="true" btnbar="true">
-                    </jmj-date-input-label>
-
-                    <jmj-date-input-label id="test" label="teste" model="model.test"
-                     class="col-lg-3 col-md-3 col-sm-6 col-xs-6" required="true" btnbar="true">
-                    </jmj-date-input-label>
-                    {{model.test}}
-
-                <jmj-time-input-label label="37 - Hora Inicial"
-                                  model="model.horaInicial" class="col-lg-4 col-md-4 col-sm-4 col-xs-4" required="true"></jmj-time-input-label>
-
-
-                <jmj-input-label id="ted" label="Input" class="col-lg-3 col-md-3 col-sm-6 col-xs-6 " model="model.ted" ></jmj-input-label>
-                <jmj-input-label id="ted2" label="Input2" class="col-lg-3 col-md-3 col-sm-6 col-xs-6" model="model.ted2" ></jmj-input-label>
-                <jmj-input-label id="ted3" label="Input3" class="col-lg-3 col-md-3 col-sm-6 col-xs-6" model="model.ted3" ></jmj-input-label>
-
-                <jmj-autocomplete label="9 - Código Contratado" class="col-lg-2 col-md-4 col-sm-4 col-xs-12"
-                            model="model.contratoExecutante"
-                            campo="codigoPrestadorNaOperadora"
-                            style-class="form-control form-control-2 form-control-padding" maxlength="9"
-                            placeholder="Código Operadora" data="contrato" pesquisa="pesquisaContratado"
-                            required="true"
-                            ></jmj-autocomplete>
-
-                <jmj-autocomplete label="10 - Nome Contratado" class="col-lg-8 col-md-8 col-sm-5 col-xs-12"
-                            style-class="form-control form-control-2 form-control-padding"
-                            model="model.contratoExecutante" maxlength="70"
-                            campo="nomeContratado" pesquisa="pesquisaContratado"
-                            placeholder="Nome Contratado" data="contrato" required="true"
-                            ></jmj-autocomplete>
+                  <jmj-select-label id="seqRef" label="teste" model="model.sed" campos="['sequencia','servico.descricao']"
+                    class="col-md-4" campo="sequencia" data="codSeqRef"></jmj-select-label>
+                    <jmj-date-input-label label="22 - Data Solicitação" open="open" disabled="true"
+                                model="data" class="col-lg-3 col-md-3 col-sm-4 col-xs-12"
+                                required="true"></jmj-date-input-label>
                 <button type="submit" name="button" class="btn btn-success">Enviar</button>
             </jmj-form>
 
