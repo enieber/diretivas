@@ -46,6 +46,52 @@ app.directive('jmjAutocomplete', function() {
         };
     });
 
+app.directive('jmjAutocompleteInput', function() {
+        return {
+            restrict: 'E',
+            templateUrl: 'autocompleteInput/view.html',
+            scope: {
+                id: '@',
+                label: '@',
+                placeholder: '@',
+                model: '=',
+                pattern: '=',
+                pesquisa: '=',
+                mensagem: '@',
+                campo: '@',
+                tooltip: '@',
+                maxlength: '@',
+                minlength: '@',
+                required: '@',
+                disabled: '@'
+
+            },
+            link: function (scope) {
+                scope.$on('submit', function (scope) {
+                    if (scope.currentScope.required && !scope.currentScope.model) {
+                        scope.currentScope.requerido = 'required';
+                        return;
+                    }
+                    scope.currentScope.requerido = '';
+                });
+            },
+            controller: ['$scope', function ($scope) {
+                //metodo para validar se o campo do autocomplete esta preenchido
+                $scope.$watch('model', function (newValues, oldValues, scope) {
+                    if (!angular.isString(scope.model) && scope.model && !scope.model[scope.campo]) {
+                        scope.model[scope.campo] = null;
+                    }
+                    //else para evitar que a propriedade pesquisada seja replicada nas outras caso não seja selecionado nenhum campo do autocomplete
+                    else if (angular.isString(scope.model) && scope.model) {
+                        var model = {};
+                        model[scope.campo] = scope.model;
+                        scope.model = model;
+                    }
+                });
+            }]
+        };
+    });
+
 app.provider('jmjDateInputLabelConfig', function(){
   var _options;
 
@@ -384,16 +430,6 @@ app.directive('jmjPanelLabel', function() {
         };
     });
 
-app.directive('jmjPanelStyle', function() {
-        return {
-            restrict: 'E',
-            templateUrl: 'panelStyle/view.html',
-            scope:{
-                style: '@'
-            },
-            transclude : true
-        };
-    });
 app.directive('jmjRadioLabel', function() {
         return {
             restrict: 'E',
@@ -434,6 +470,16 @@ app.directive('jmjRadioLabel', function() {
         };
     });
 
+app.directive('jmjPanelStyle', function() {
+        return {
+            restrict: 'E',
+            templateUrl: 'panelStyle/view.html',
+            scope:{
+                style: '@'
+            },
+            transclude : true
+        };
+    });
 app.directive('jmjSelectLabel', function() {
         return {
             restrict: 'E',
@@ -527,7 +573,8 @@ app.directive('jmjValidate', function() {
         };
     });
 
-angular.module("jmj.diretivas").run(["$templateCache", function($templateCache) {$templateCache.put("autocomplete/view.html","<jmj-label id={{id}} label={{label}} required={{required}}></jmj-label><input id={{id}} type=text name={{id}} placeholder={{placeholder}} pattern={{pattern}} class=\"form-control form-control-2 form-control-padding\" maxlength={{maxlength}} ng-model=model ng-focus=\"selecionado = true\" ng-blur=\"selecionado = false\" ng-required=\"{{ required != undefined}}\" ng-init=\"pristine=true\" ng-minlength=minlength ng-disabled=\"{{disabled != undefined}}\" uib-typeahead=\"item as item[campo] for item in pesquisa(campo, $viewValue)\" tooltip-enable=!model tooltip-placement=bottom tooltip-trigger=focus uib-tooltip={{tooltip}} typeahead-loading=loading typeahead-no-results=noResults> <i ng-if=loading class=\"glyphicon glyphicon-refresh\"></i><div class=bg-danger ng-show=invalid>{{mensagem}}</div><div ng-if=\"noResults && selecionado\"><i class=\"glyphicon glyphicon-remove\"></i> Nenhum resultado encontrado.</div>");
+angular.module("jmj.diretivas").run(["$templateCache", function($templateCache) {$templateCache.put("autocompleteInput/view.html","<input id={{id}} type=text name={{id}} placeholder={{placeholder}} pattern={{pattern}} class=\"form-control form-control-2 form-control-padding\" maxlength={{maxlength}} ng-model=model ng-focus=\"selecionado = true\" ng-blur=\"selecionado = false\" ng-required=\"{{ required != undefined}}\" ng-init=\"pristine=true\" ng-minlength=minlength ng-disabled=\"{{disabled != undefined}}\" uib-typeahead=\"item as item[campo] for item in pesquisa(campo, $viewValue)\" tooltip-enable=!model tooltip-placement=bottom tooltip-trigger=focus uib-tooltip={{tooltip}} typeahead-loading=loading typeahead-no-results=noResults> <i ng-if=loading class=\"glyphicon glyphicon-refresh\"></i><div class=bg-danger ng-show=invalid>{{mensagem}}</div><div ng-if=\"noResults && selecionado\"><i class=\"glyphicon glyphicon-remove\"></i> Nenhum resultado encontrado.</div>");
+$templateCache.put("autocomplete/view.html","<jmj-label id={{id}} label={{label}} required={{required}}></jmj-label><input id={{id}} type=text name={{id}} placeholder={{placeholder}} pattern={{pattern}} class=\"form-control form-control-2 form-control-padding\" maxlength={{maxlength}} ng-model=model ng-focus=\"selecionado = true\" ng-blur=\"selecionado = false\" ng-required=\"{{ required != undefined}}\" ng-init=\"pristine=true\" ng-minlength=minlength ng-disabled=\"{{disabled != undefined}}\" uib-typeahead=\"item as item[campo] for item in pesquisa(campo, $viewValue)\" tooltip-enable=!model tooltip-placement=bottom tooltip-trigger=focus uib-tooltip={{tooltip}} typeahead-loading=loading typeahead-no-results=noResults> <i ng-if=loading class=\"glyphicon glyphicon-refresh\"></i><div class=bg-danger ng-show=invalid>{{mensagem}}</div><div ng-if=\"noResults && selecionado\"><i class=\"glyphicon glyphicon-remove\"></i> Nenhum resultado encontrado.</div>");
 $templateCache.put("dateInputLabel/view.html","<div class=form-group><label for={{id}} class={{requerido}}>{{label}}<span ng-if=required class=required>*</span>:</label><p class=input-group><input type=text class=\"form-control {{styleClass}}\" ng-model=model ng-required=required uib-datepicker-popup=\"{{ format || \'dd/MM/yyyy\'}}\" datepicker-options=options is-open=opened show-button-bar=btnbar ng-disabled=disabled close-text=Fechar current-text=Hoje clear-text=Limpar> <span class=input-group-btn><button type=button class=\"btn btn-default\" ng-click=open()><i class=\"fa fa-calendar\"></i></button></span></p><jmj-validate></jmj-validate></div>");
 $templateCache.put("footer/view.html","<footer class=main-footer><div class=\"pull-right hidden-xs\"><b>Version</b> {{version}}</div><strong>Copyright &copy; {{year}} <a href>{{company}}</a>.</strong> All rights reserved.</footer>");
 $templateCache.put("form/view.html","<form name=form novalidate ng-transclude></form>");
@@ -540,7 +587,7 @@ $templateCache.put("panel/view.html","<div class=\"panel panel-default\"><div cl
 $templateCache.put("panelLabel/view.html","<div class=\"box box-default\"><div class=\"container-fluid padding-bottom-10 padding-top-7 cinza2 border-bottom\"><h5><i class=\"fa {{icon}}\"></i> {{label}}</h5></div><div class=box-body><div class=\"container-fluid padding-top-15 padding-bottom-5\"><div ng-transclude></div></div></div></div>");
 $templateCache.put("panelStyle/view.html","<div class=\"container-fluid padding-bottom-10 padding-top-10 {{style}} margin-bottom-10\"><div class=row><div ng-transclude></div></div></div>");
 $templateCache.put("radioLabel/view.html","<div class=form-group><label for={{id}} class={{requerido}}>{{label}}<span ng-if=required class=required>*</span>:</label><div><div><label class={{space}} ng-repeat=\"radio in data\"><input type=radio name={{name}} value={{radio}} ng-value=radio ng-model=$parent.model ng-disabled=\"disabled == \'true\' ? true : false\" aria-describedby=\"input radiobox\"> {{text ? radio.text : radio}}</label></div><jmj-validate></jmj-validate></div></div>");
-$templateCache.put("selectLabel/view.html","<div class=form-group><label for={{id}} class={{requerido}}>{{label}}<span ng-if=required class=required>*</span>:</label><div><select name={{id}} class=\"form-control form-control-2\" ng-disabled=\"{{disabled != undefined}}\" ng-options=\"select[campo] for select in data track by select[campo]\" ng-model=model aria-describedby=\"select component\"><option class=form-control value>Selecione</option></select><jmj-validate></jmj-validate></div></div>");
 $templateCache.put("textLabel/view.html","<div class=form-group><label for={{id}} class={{requerido}}>{{label}}<span ng-if=required class=required>*</span>:</label><div><textarea id={{id}} class=\"form-control form-control-2\" ng-model=model ng-maxlength=maxlength ng-minlength=minlength maxlength={{maxlength}} placeholder={{placeholder}} ng-required=\"{{ required != undefined}}\" aria-describedby=pesquisarInput ng-disabled=\"disabled == \'true\' ? true : false\">\r\n\r\n        <jmj-validate></jmj-validate>\r\n    </textarea></div></div>");
-$templateCache.put("validate/view.html","<div ng-if=error><div ng-if=error.required class=required>{{messageRequired}}</div><div ng-if=error.minlength class=required>{{messageMinlength}}</div><div ng-if=error.pattern class=required>{{messagePattern}}</div><div ng-if=error.maxlength class=required>{{messageMaxlength}}</div></div>");
-$templateCache.put("timeInputLabel/view.html","<label for={{id}} class={{requerido}}>{{label}}<span ng-if=required class=required>*</span>:</label><uib-timepicker id={{id}} ng-model=model type=number show-spinners=false hour-step=\"hstep || 1\" minute-step=\"mstep || 1\" show-meridian=ismeridian></uib-timepicker><jmj-validate></jmj-validate>");}]);})();
+$templateCache.put("selectLabel/view.html","<div class=form-group><label for={{id}} class={{requerido}}>{{label}}<span ng-if=required class=required>*</span>:</label><div><select name={{id}} class=\"form-control form-control-2\" ng-disabled=\"{{disabled != undefined}}\" ng-options=\"select[campo] for select in data track by select[campo]\" ng-model=model aria-describedby=\"select component\"><option class=form-control value>Selecione</option></select><jmj-validate></jmj-validate></div></div>");
+$templateCache.put("timeInputLabel/view.html","<label for={{id}} class={{requerido}}>{{label}}<span ng-if=required class=required>*</span>:</label><uib-timepicker id={{id}} ng-model=model type=number show-spinners=false hour-step=\"hstep || 1\" minute-step=\"mstep || 1\" show-meridian=ismeridian></uib-timepicker><jmj-validate></jmj-validate>");
+$templateCache.put("validate/view.html","<div ng-if=error><div ng-if=error.required class=required>{{messageRequired}}</div><div ng-if=error.minlength class=required>{{messageMinlength}}</div><div ng-if=error.pattern class=required>{{messagePattern}}</div><div ng-if=error.maxlength class=required>{{messageMaxlength}}</div></div>");}]);})();
