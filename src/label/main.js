@@ -8,7 +8,8 @@ app.directive('jmjLabel', function() {
                 required: '@',
                 placeholder: '@',
                 model : '=',
-                disabled : '@'
+                disabled : '@',
+                style: '@'
             },
             link: function (scope, element, attr) {
                 scope.$on('submit', function(scope, form) {
